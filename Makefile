@@ -1,7 +1,7 @@
-NOTE_NAMES = Prob1 Prob2 Prob3 Prob4 
-NOTE_DIRS = $(addprefix notes/, $(addsuffix /, $(SUB_NAMES)))
-NOTE_PDFS =   $(join $(SUB_DIRS), $(addsuffix .pdf, $(SUB_NAMES)))
-NOTE_TEXS = $(SUB_PDFS:.pdf=.tex)
+NOTE_NAMES = DrudeTheory
+NOTE_DIRS = $(addprefix notes/, $(addsuffix /, $(NOTE_NAMES)))
+NOTE_PDFS =   $(join $(NOTE_DIRS), $(addsuffix .pdf, $(NOTE_NAMES)))
+NOTE_TEXS = $(NOTE_PDFS:.pdf=.tex)
 
 
 NOTE_DEPEND = $(NOTE_TEXS) 
