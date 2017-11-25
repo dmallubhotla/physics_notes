@@ -1,0 +1,44 @@
+\documentclass[11pt]{article}
+
+\usepackage{subfiles}
+
+\usepackage{deepak}
+
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{nameref}
+\usepackage{listings}
+\usepackage[section]{placeins}
+\usepackage[usenames, dvipsnames]{color}
+\usepackage{courier}
+\usepackage{blkarray}
+
+\pagestyle{headings}	
+
+\sisetup{per-mode=symbol-or-fraction}
+\lstset{basicstyle=\ttfamily\footnotesize,breaklines=true,columns=fullflexible,keepspaces=true}
+
+
+\title{Main notebook}
+\date{2017-11-25, Last update \DTMToday{}}
+\author{Deepak Mallubhotla}
+
+%\let\Tr\relax
+%\DeclareMathOperator{\Tr}{Sp}
+
+\newcommand{\ham}{\mathcal{H}}
+\DeclareMathOperator{\res}{Res}
+
+
+% !TeX spellcheck = en_GB
+\newcommand{\onlyinsubfile}[1]{#1}
+\newcommand{\notinsubfile}[1]{}
+
+\begin{document}
+\renewcommand{\onlyinsubfile}[1]{}
+\renewcommand{\notinsubfile}[1]{#1}
+
+\maketitle
+
+
+\end{document}
