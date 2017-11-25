@@ -12,6 +12,18 @@ Our ultimate goal will be to find the conductivity $\sigma$ and the dielectric c
 
 \begin{gather}
 	\sigmaDC = \frac{n e^2 \tau}{m} \\
+	\sigmaAC = \frac{n e^2 \tau}{m} \frac{1}{1 - i \omega \tau} \\
+	\epsilon = 1 + i \frac{4 \pi \sigma}{\omega}
 \end{gather}
+
+Our dielectric constant can be rewritten to plug in for $\sigma$, giving us
+\begin{align}
+	\epsilon &= 1 + i \frac{4 \pi \sigma}{\omega} \\
+	&= 1 + i \frac{4 \pi \sigmaDC}{\omega} \frac{1}{1 - i \omega \tau} \\
+ &= 1 + i \frac{4 \pi \sigmaDC}{\omega} \frac{1}{1 - i \omega \tau} \frac{1 + i \omega\tau}{1 + i \omega \tau} \\
+ &= 1 + i \frac{4 \pi \sigmaDC}{\omega} \frac{1 + i \omega \tau}{1 + \omega^2 \tau^2} \\
+ &= \left(1 - \frac{4 \pi \sigmaDC \omega \tau}{\omega\left(1 + \omega^2 \tau^2 \right)} \right) + i \left( \frac{4 \pi \sigmaDC}{\omega \left( 1 + \omega^2 \tau^2 \right)} \right) \\
+ &= \left(1 - \frac{4 \pi \sigmaDC  \tau}{1 + \omega^2 \tau^2 } \right) + i \left( \frac{4 \pi \sigmaDC}{\omega \left( 1 + \omega^2 \tau^2 \right)} \right) 
+\end{align}
 
 \end{document}
