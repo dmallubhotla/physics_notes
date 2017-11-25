@@ -6,15 +6,19 @@ NOTE_TEXS = $(NOTE_PDFS:.pdf=.tex)
 
 NOTE_DEPEND = $(NOTE_TEXS) 
 
+#DEFINE ALL THE INDIVIDUAL NOTE DEPENDENCIES HERE AS CONSTANTS
+
 LATEXMK = latexmk -use-make -pdf -dvi- -ps- 
 
 all: main.pdf $(NOTE_PDFS)
 
 parts: $(NOTE_PDFS)
 
+#TARGETS FOR INDIVIDUAL NOTE PDFS 
+
 %.pdf: %.tex
 	cd $(<D); $(LATEXMK) $(<F)
-	
+
 
 main.pdf: main.tex $(NOTE_DEPEND) 
 	$(LATEXMK) main.tex

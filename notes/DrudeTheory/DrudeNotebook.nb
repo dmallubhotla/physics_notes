@@ -1,0 +1,163 @@
+(* Content-type: application/vnd.wolfram.mathematica *)
+
+(*** Wolfram Notebook File ***)
+(* http://www.wolfram.com/nb *)
+
+(* CreatedBy='Mathematica 11.0' *)
+
+(*CacheID: 234*)
+(* Internal cache information:
+NotebookFileLineBreakTest
+NotebookFileLineBreakTest
+NotebookDataPosition[       158,          7]
+NotebookDataLength[      5107,        155]
+NotebookOptionsPosition[      4643,        134]
+NotebookOutlinePosition[      4991,        149]
+CellTagsIndexPosition[      4948,        146]
+WindowFrame->Normal*)
+
+(* Beginning of Notebook Content *)
+Notebook[{
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"e", "[", 
+   RowBox[{"\[Omega]_", ",", " ", "\[Tau]_"}], "]"}], " ", ":=", " ", 
+  RowBox[{
+   RowBox[{"(", 
+    RowBox[{"1", " ", "-", " ", 
+     RowBox[{
+      RowBox[{"(", 
+       RowBox[{"\[Tau]", "^", "2"}], ")"}], "/", 
+      RowBox[{"(", 
+       RowBox[{"1", " ", "+", " ", 
+        RowBox[{
+         RowBox[{"\[Omega]", "^", "2"}], " ", 
+         RowBox[{"\[Tau]", "^", "2"}]}]}], ")"}]}]}], " ", ")"}], "  ", "+", 
+   "  ", 
+   RowBox[{"I", " ", 
+    RowBox[{"(", 
+     RowBox[{
+      RowBox[{"(", "\[Tau]", ")"}], " ", "/", " ", 
+      RowBox[{"(", 
+       RowBox[{"\[Omega]", 
+        RowBox[{"(", 
+         RowBox[{"1", " ", "+", " ", 
+          RowBox[{
+           RowBox[{"\[Omega]", "^", "2"}], " ", 
+           RowBox[{"\[Tau]", "^", "2"}]}]}], ")"}]}], ")"}]}], 
+     ")"}]}]}]}]], "Input",
+ CellChangeTimes->{{3.720636070483678*^9, 3.720636210389689*^9}}],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"e", "[", 
+  RowBox[{"2", " ", ",", " ", "3"}], "]"}]], "Input",
+ CellChangeTimes->{{3.720636152513731*^9, 3.720636155865076*^9}}],
+
+Cell[BoxData[
+ RowBox[{
+  FractionBox["28", "37"], "+", 
+  FractionBox[
+   RowBox[{"3", " ", "\[ImaginaryI]"}], "74"]}]], "Output",
+ CellChangeTimes->{3.7206361561612825`*^9, 3.720636212813391*^9}]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"Manipulate", "[", 
+  RowBox[{
+   RowBox[{"Plot", "[", 
+    RowBox[{
+     RowBox[{"{", 
+      RowBox[{
+       RowBox[{"Re", "[", 
+        RowBox[{"e", "[", 
+         RowBox[{"\[Omega]", ",", " ", "\[Tau]"}], "]"}], "]"}], ",", " ", 
+       RowBox[{"Im", "[", 
+        RowBox[{"e", "[", 
+         RowBox[{"\[Omega]", ",", " ", "\[Tau]"}], "]"}], "]"}]}], "}"}], ",",
+      " ", 
+     RowBox[{"{", 
+      RowBox[{"\[Omega]", ",", " ", "0", ",", " ", "10"}], "}"}], ",", " ", 
+     RowBox[{"PlotLabels", "->", 
+      RowBox[{"{", 
+       RowBox[{"\"\<Re\>\"", ",", " ", "\"\<Im\>\""}], "}"}]}]}], "]"}], ",", 
+   " ", 
+   RowBox[{"{", 
+    RowBox[{"\[Tau]", ",", " ", "0", ",", " ", "10"}], "}"}]}], 
+  "]"}]], "Input",
+ CellChangeTimes->{{3.7206362202046366`*^9, 3.7206363067384624`*^9}, {
+  3.7206363375772886`*^9, 3.7206363900036306`*^9}}],
+
+Cell[BoxData[
+ TagBox[
+  StyleBox[
+   DynamicModuleBox[{$CellContext`\[Tau]$$ = 1.58, Typeset`show$$ = True, 
+    Typeset`bookmarkList$$ = {}, Typeset`bookmarkMode$$ = "Menu", 
+    Typeset`animator$$, Typeset`animvar$$ = 1, Typeset`name$$ = 
+    "\"untitled\"", Typeset`specs$$ = {{
+      Hold[$CellContext`\[Tau]$$], 0, 10}}, Typeset`size$$ = {
+    360., {94., 98.}}, Typeset`update$$ = 0, Typeset`initDone$$, 
+    Typeset`skipInitDone$$ = True, $CellContext`\[Tau]$29503$$ = 0}, 
+    DynamicBox[Manipulate`ManipulateBoxes[
+     1, StandardForm, "Variables" :> {$CellContext`\[Tau]$$ = 0}, 
+      "ControllerVariables" :> {
+        Hold[$CellContext`\[Tau]$$, $CellContext`\[Tau]$29503$$, 0]}, 
+      "OtherVariables" :> {
+       Typeset`show$$, Typeset`bookmarkList$$, Typeset`bookmarkMode$$, 
+        Typeset`animator$$, Typeset`animvar$$, Typeset`name$$, 
+        Typeset`specs$$, Typeset`size$$, Typeset`update$$, Typeset`initDone$$,
+         Typeset`skipInitDone$$}, "Body" :> Plot[{
+         Re[
+          $CellContext`e[$CellContext`\[Omega], $CellContext`\[Tau]$$]], 
+         Im[
+          $CellContext`e[$CellContext`\[Omega], $CellContext`\[Tau]$$]]}, \
+{$CellContext`\[Omega], 0, 10}, PlotLabels -> {"Re", "Im"}], 
+      "Specifications" :> {{$CellContext`\[Tau]$$, 0, 10}}, "Options" :> {}, 
+      "DefaultOptions" :> {}],
+     ImageSizeCache->{411., {140., 146.}},
+     SingleEvaluation->True],
+    Deinitialization:>None,
+    DynamicModuleValues:>{},
+    SynchronousInitialization->True,
+    UndoTrackedVariables:>{Typeset`show$$, Typeset`bookmarkMode$$},
+    UnsavedVariables:>{Typeset`initDone$$},
+    UntrackedVariables:>{Typeset`size$$}], "Manipulate",
+   Deployed->True,
+   StripOnInput->False],
+  Manipulate`InterpretManipulate[1]]], "Output",
+ CellChangeTimes->{{3.720636271271762*^9, 3.7206363077431583`*^9}, {
+  3.72063635623139*^9, 3.720636390641077*^9}}]
+}, Open  ]]
+},
+WindowSize->{775, 733},
+WindowMargins->{{Automatic, -67}, {35, Automatic}},
+FrontEndVersion->"11.0 for Microsoft Windows (64-bit) (September 21, 2016)",
+StyleDefinitions->"Default.nb"
+]
+(* End of Notebook Content *)
+
+(* Internal cache information *)
+(*CellTagsOutline
+CellTagsIndex->{}
+*)
+(*CellTagsIndex
+CellTagsIndex->{}
+*)
+(*NotebookFileOutline
+Notebook[{
+Cell[558, 20, 908, 28, 30, "Input"],
+Cell[CellGroupData[{
+Cell[1491, 52, 153, 3, 30, "Input"],
+Cell[1647, 57, 197, 5, 46, "Output"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[1881, 67, 862, 24, 50, "Input"],
+Cell[2746, 93, 1881, 38, 303, "Output"]
+}, Open  ]]
+}
+]
+*)
+

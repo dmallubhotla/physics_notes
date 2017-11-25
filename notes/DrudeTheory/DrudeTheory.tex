@@ -8,13 +8,21 @@
 % !TeX spellcheck = en_GB
 \section{Drude model $\sigma$ and $\epsilon$}
 
+The assumptions of the Drude model are simple: we have interaction-free electrons that occasionally undergo some scattering process during a time $\dd{t}$ with probability $\frac{\dd{t}}{\tau}$, where $\tau$ is some phenomenological parameter. This scattering will randomise electron momentum.
+
 Our ultimate goal will be to find the conductivity $\sigma$ and the dielectric constant $\epsilon$ in the Drude model, with Drude relaxation time $\tau$, electron density $n$ and electron mass $m$. We'll find
 
-\begin{gather}
-	\sigmaDC = \frac{n e^2 \tau}{m} \\
-	\sigmaAC = \frac{n e^2 \tau}{m} \frac{1}{1 - i \omega \tau} \\
-	\epsilon = 1 + i \frac{4 \pi \sigma}{\omega}
-\end{gather}
+\begin{align}
+	\sigmaDC &= \frac{n e^2 \tau}{m} \\
+	\sigmaAC &= \frac{n e^2 \tau}{m} \frac{1}{1 - i \omega \tau} && \text{For SI and Gaussian}
+\end{align}
+
+\begin{subequations}
+	\begin{align}
+		\epsilon_r &= 1 + i \frac{4 \pi \sigma}{\omega} && \text{Gaussian} \\
+		\epsilon_r &= 1 + i \frac{\sigma}{\omega \epsilon_0} && \text{SI} 
+	\end{align}
+\end{subequations}
 
 Our dielectric constant can be rewritten to plug in for $\sigma$, giving us
 \begin{align}
@@ -28,6 +36,19 @@ Our dielectric constant can be rewritten to plug in for $\sigma$, giving us
 
 This lets us write down the explicit real and imaginary of the Drude dielectric function.
 
+\subsection{Limiting forms of the Drude model}
+We can look at the large and small $\omega$ limits for the Drude dielectric function.
+
 \subsection{Derivations for Drude model}
+
+\subsubsection{Conductivity}
+We can start unit-system independently, with the expression $\ev{\vec{j}} = \sigma \vec{E}$. We can also relate our current to our average electron velocity: $\vec{j} = n e \vec{v}$. Imagine at time $t = 0$ our electron undergoes a Drude collision, and emerges with $\vec{v}_{t = 0} = \vec{v_0}$. After a time $t$, the electron will accelerate with acceleration $-\frac{e \vec{E}}{m}$ (which fortunately remains unit independent). Because it will only accelerate for a time $\tau$ on average before a collision, it will end up with velocity $\vec{v} = -\frac{e \vec{E}}{m}\tau + \vec{v_0}$. The average velocity, and current, will be 
+\begin{align}
+	\ev{\vec{v}} &= - \frac{e \vec{E}}{m}\tau + \ev{\vec{v_0}} \\
+	&= - \frac{e \vec{E}}{m}\tau \\
+	\frac{\vec{j}}{ne} &= - \frac{e \vec{E}}{m}\tau \\
+	\vec{j} &= - \frac{n e^2 \tau}{m} \vec{E}.
+\end{align}
+This of course gives us, unit-independently, our DC conductivity $\sigmaDC = \frac{n e^2 \tau}{m}$
 
 \end{document}
