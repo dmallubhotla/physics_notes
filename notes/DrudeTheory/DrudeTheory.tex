@@ -14,7 +14,7 @@ Our ultimate goal will be to find the conductivity $\sigma$ and the dielectric c
 
 \begin{align}
 	\sigmaDC &= \frac{n e^2 \tau}{m} \\
-	\sigmaAC &= \frac{n e^2 \tau}{m} \frac{1}{1 - i \omega \tau} && \text{For SI and Gaussian}
+	\sigmaAC &= \frac{n e^2 \tau}{m} \frac{1}{1 - i \omega \tau} && \text{For SI and Gaussian} \label{eq:DrudeTheory:SigmaAC}
 \end{align}
 
 \begin{subequations}
@@ -41,14 +41,41 @@ We can look at the large and small $\omega$ limits for the Drude dielectric func
 
 \subsection{Derivations for Drude model}
 
-\subsubsection{Conductivity}
-We can start unit-system independently, with the expression $\ev{\vec{j}} = \sigma \vec{E}$. We can also relate our current to our average electron velocity: $\vec{j} = n e \vec{v}$. Imagine at time $t = 0$ our electron undergoes a Drude collision, and emerges with $\vec{v}_{t = 0} = \vec{v_0}$. After a time $t$, the electron will accelerate with acceleration $-\frac{e \vec{E}}{m}$ (which fortunately remains unit independent). Because it will only accelerate for a time $\tau$ on average before a collision, it will end up with velocity $\vec{v} = -\frac{e \vec{E}}{m}\tau + \vec{v_0}$. The average velocity, and current, will be 
+\subsubsection{DC Conductivity}
+We can start unit-system independently, with the expression 
+\begin{equation}
+	{\vec{j}} = \sigma \vec{E}. \label{eq:DrudeTheory:ConductivityDef}
+\end{equation}
+We can also relate our current to our average electron velocity: $\vec{j} = n e \vec{v}$. Imagine at time $t = 0$ our electron undergoes a Drude collision, and emerges with $\vec{v}_{t = 0} = \vec{v_0}$. After a time $t$, the electron will accelerate with acceleration $-\frac{e \vec{E}}{m}$ (which fortunately remains unit independent). Because it will only accelerate for a time $\tau$ on average before a collision, it will end up with velocity $\vec{v} = -\frac{e \vec{E}}{m}\tau + \vec{v_0}$. The average velocity, and current, will be 
 \begin{align}
 	\ev{\vec{v}} &= - \frac{e \vec{E}}{m}\tau + \ev{\vec{v_0}} \\
 	&= - \frac{e \vec{E}}{m}\tau \\
 	\frac{\vec{j}}{ne} &= - \frac{e \vec{E}}{m}\tau \\
 	\vec{j} &= - \frac{n e^2 \tau}{m} \vec{E}.
 \end{align}
-This of course gives us, unit-independently, our DC conductivity $\sigmaDC = \frac{n e^2 \tau}{m}$
+This of course gives us, unit-independently, our DC conductivity $\sigmaDC = \frac{n e^2 \tau}{m}$. 	
+
+The AC conductivity is also simple, but we want to be a bit more formal about it. We can write out the contributions to velocity in terms of probabilities. The velocity at a time $\dd{t}$ will have probability $\flatfrac{\dd{t}}{\tau}$ of being $0$, and will otherwise be the original velocity minus $a \dd{t}$:
+\begin{align}
+	\vec{v}(\dd{t}) &= \left(1 - \frac{\dd{t}}{\tau}\right) \left(\vec{v_0} - \frac{e \vec{E}}{m} \dd{t} \right) \\
+	&= \vec{v_0} - \frac{\dd{t}}{\tau}\vec{v_0} - \frac{e \vec{E}}{m} \dd{t},
+\end{align}
+where we've invoked our inalienable right as physicists to ignore all terms $\mathcal{O}(\dd{t}^2)$.
+This reduces, using the definition of $\dd{\vec{v}} = \vec{v}(\dd{t}) - \vec{v_0}$, to
+\begin{align}
+	\dd{\vec{v}} &=  \frac{\dd{t}}{\tau} \vec{v} - \frac{e \vec{E}}{m} \dd{t} \\
+	\dv{\vec{v}}{t} &= \frac{\vec{v}}{\tau} - \frac{e \vec{E}}{m}
+\end{align}
+
+We can quickly Fourier transform this, using $\dv{}{t} \rightarrow -i \omega$, and we get (after surreptitiously dropping some vector signs)
+\begin{align}
+	-i \omega v(\omega) &= - \frac{v(\omega)}{\tau} - \frac{e E(\omega)}{m} \\
+	v(\omega) &= \frac{e E(\omega)}{m \left(\frac{1}{\tau} - i\omega \right)} \\
+	j(\omega) &= \frac{n e^2 E(\omega)}{m \left(\frac{1}{\tau} - i\omega \right)} \\
+	&= \frac{n e^2 \tau E(\omega)}{m \left(1 - i\omega \tau \right)}, 
+\end{align}
+which gives us our AC conductivity in equation \eqref{eq:DrudeTheory:SigmaAC}.
+
+Now for our dielectric constant, we have to find some other defining relation on par with \eqref{eq:DrudeTheory:ConductivityDef}.
 
 \end{document}
