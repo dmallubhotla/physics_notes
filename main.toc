@@ -1,0 +1,5 @@
+\select@language {ngerman}
+\contentsline {section}{\numberline {1}Drude model parameters}{1}{section.1}
+\contentsline {subsection}{\numberline {1.1}Limiting forms of the Drude model}{2}{subsection.1.1}
+\contentsline {subsection}{\numberline {1.2}Derivations for Drude model}{2}{subsection.1.2}
+\contentsline {subsubsection}{\numberline {1.2.1}DC Conductivity}{2}{subsubsection.1.2.1}
