@@ -1,5 +1,6 @@
 \documentclass[../../main.tex]{subfiles}
 \newcommand{\vf}{v_F}
+\allowdisplaybreaks
 
 \begin{document}
 
@@ -34,7 +35,7 @@ Defining $\eta = \omega + i \nu$:
 	&= 1 - \frac{\eta}{2 } \frac{1}{\eta + k\vf} \frac{2 \eta}{\eta - k \vf } \\
 	&= 1 - \frac{\eta^2}{\eta^2 - k^2 \vf^2} \\
 	&= \frac{-k^2 \vf^2}{\eta^2 - k^2 \vf^2} \label{eq:ReducingLindhard:f} \\
-	&= 0
+	\lim_{k \to 0} f_l &= 0
 \end{align}
 Note that this goes to $0$ for $k \to 0$.
 
