@@ -39,6 +39,29 @@ Defining $\eta = \omega + i \nu$:
 \end{align}
 Note that this goes to $0$ for $k \to 0$.
 
+\subsection{Series expansion of f}
+The previous section gives the limit, but having the actual series expansion is probably more valuable. Again, with $\eta = \omega + i \nu$,
+\begin{align}
+	f_l(\flatfrac{(\omega + i \nu)}{k v_f}) &= 1 - \frac{\flatfrac{(\omega + i \nu)}{k v_f}}{2} \ln\frac{\flatfrac{(\omega + i \nu)}{k v_f} + 1}{\flatfrac{(\omega + i \nu)}{k v_f} - 1} \\
+	f_l(\flatfrac{\eta}{k \vf}) &= 1 - \frac{\eta}{2 \vf k} \ln\frac{\eta + k \vf}{\eta - k\vf} 
+\end{align}
+We want to expand up to $k^2$ overall, to cancel out the $k^2$ in the denominator of \eqref{eq:ReducingLindhard:LindhardEps}. We're looking at the function. 
+\begin{equation}
+	\frac{\ln(\eta + k \vf)}{k} - \frac{\ln(\eta - k \vf)}{k} 
+\end{equation}
+
+%The derivatives are as follows:
+%\begin{align}
+%	\dv[0]{\frac{\ln(\eta \pm k\vf)}{k}}{k} &= \frac{\ln(\eta \pm k\vf)}{k}\\
+%	\dv[1]{\frac{\ln(\eta \pm k\vf)}{k}}{k} &= \frac{\pm \vf}{k \left(\eta \pm k\vf \right)} - \frac{\ln(\eta \pm k\vf)}{k^2}\\
+%	\dv[2]{\frac{\ln(\eta \pm k\vf)}{k}}{k} &= frac{}{}\\
+%\end{align}
+Generally, the derivatives of $\frac{g(a \pm x)}{x}$ are
+\begin{align}
+	\left(\frac{g(x)}{x} \right)' &= \frac{\pm g'}{x} - \frac{g}{x^2} \\
+	\left(\frac{g(x)}{x} \right)'' &= \frac{g''}{x} - \frac{\pm 2g'}{x^2}+ \frac{2 g}{x^3}
+\end{align}
+
 \subsection{Back to dielectric}
 \begin{equation} \label{eq:ReducingLindhard:EpsWithF} 
  \epsilon_l = 1 + \frac{3 \omega_p^2}{k^2 v_F^2} \frac{\left(\omega + i \nu \right) f_l(\flatfrac{(\omega + i \nu)}{k v_f})}{\omega + i \nu f_l(\flatfrac{(\omega + i \nu)}{k v_f})}
