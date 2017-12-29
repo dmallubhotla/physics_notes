@@ -36,8 +36,19 @@ Our dielectric constant can be rewritten to plug in for $\sigma$, giving us
 
 This lets us write down the explicit real and imaginary of the Drude dielectric function.
 
-\subsection{Limiting forms of the Drude model}
-We can look at the large and small $\omega$ limits for the Drude dielectric function.
+\subsection{Alternative forms of the Drude model}
+We can also rewrite the dielectric constant very slightly in terms of the plasma frequency. In Gaussian units:
+\begin{align}
+	\epsilon &= 1 + i \frac{4 \pi \sigma}{\omega} \\
+	&= 1 + i \frac{4 \pi}{\omega} \frac{n e^2 \tau}{m} \frac{1}{1 - i \omega \tau} \\
+	&= 1 + i \frac{4 \pi}{\omega} \frac{n e^2 \tau}{m} \frac{1}{1 - i \omega \tau} \frac{i \nu}{i \nu} \\
+	&= 1 - \frac{4 \pi}{\omega} \frac{n e^2 }{m} \frac{1}{i \nu + \omega }
+\end{align}
+With $\omega_p^2 = \frac{4 \pi n e^2}{m}$ in Gaussian units, this becomes 
+\begin{align}
+	\epsilon = 1 - \frac{\omega_p^2}{\omega ( \omega + i \nu )}
+\end{align}
+We'll see this again later.
 
 \subsection{Derivations for Drude model}
 
