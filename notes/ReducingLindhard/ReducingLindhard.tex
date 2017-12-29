@@ -5,7 +5,7 @@
 \begin{document}
 
 % !TeX spellcheck = en_GB
-\section{Reducing Lindhard to Drude}
+\section{Reducing Longitudinal Lindhard to Drude}
 We want to see how we can reduce the Lindhard dielectric function
 \begin{equation} \label{eq:ReducingLindhard:LindhardEps} 
  \epsilon_l = 1 + \frac{3 \omega_p^2}{k^2 v_F^2} \frac{\left(\omega + i \nu \right) f_l(\flatfrac{(\omega + i \nu)}{k v_f})}{\omega + i \nu f_l(\flatfrac{(\omega + i \nu)}{k v_f})},
@@ -95,5 +95,53 @@ Using \eqref{eq:ReducingLindhard:f}, we get
 \end{align}
 
 This is the Drude limit, keeping in mind that $\omega_p^2 = \frac{4\pi n e^2}{m}$ in Gaussian units.
+
+\subsection{Looking at transverse Lindhard form}
+It's possible also to show that the transverse Lindhard dielectric function ends up also going to the Drude form in the $k \rightarrow 0$ limit. 
+
+Writing out $\epsilon_t$:
+\begin{equation} 
+	e_t = 1 - \frac{\omega_p^2}{\omega \eta} \left[\frac32 \frac{\eta^2}{\vf^2 k^2} - \frac34 \frac{\eta}{\vf k} \left(\frac{\eta^2}{\vf^2 k^2} - 1 \right)\ln\frac{\eta + \vf k}{\eta - \vf k} \right]
+\end{equation}
+
+We can also simplify this slightly, to highlight the similarities between this and the longitudinal forms:
+\begin{align}
+	e_t &= 1 - \frac{3 \omega_p^2}{2\omega \eta} \left[ \frac{\eta^2}{\vf^2 k^2} - \frac12 \frac{\eta}{\vf k} \left(\frac{\eta^2}{\vf^2 k^2} - 1 \right)\ln\frac{\eta + \vf k}{\eta - \vf k} \right] \\
+	&= 1 - \frac{3 \omega_p^2}{2\omega \eta} \left[ \frac{\eta^2}{\vf^2 k^2} - \frac12 \frac{\eta^2}{\vf^2 k^2} \left(\frac{\eta}{\vf k} - \frac{\vf k}{\eta} \right)\ln\frac{\eta + \vf k}{\eta - \vf k} \right] \\
+	&= 1 - \frac{3 \omega_p^2}{2\omega \eta} \frac{\eta^2}{\vf^2 k^2} \left[ 1 - \frac12 \left(\frac{\eta}{\vf k} - \frac{\vf k}{\eta} \right)\ln\frac{\eta + \vf k}{\eta - \vf k} \right] \\
+	&= 1 - \frac{3 \omega_p^2 \eta}{2\omega \vf^2 k^2} \left[ 1 - \frac12 \left(\frac{\eta}{\vf k} - \frac{\vf k}{\eta} \right)\ln\frac{\eta + \vf k}{\eta - \vf k} \right]\label{eq:ReducingLindhard:et}
+\end{align}
+There is an extra term within the brackets, as well as an extra factor of $-\frac12$ on the outside.
+
+To find the $k \rightarrow 0$ limit here, we can do the same series expansion as we did for the longitudinal case. The relevant series to find is for the bracketed portion, which we can break into two parts:
+\begin{align} \label{eq:ReducingLindhard:Simplerft}
+	 1 - \frac12 \frac{\eta}{\vf k}\ln\frac{\eta + \vf k}{\eta - \vf k} - \frac12 \frac{\vf k}{\eta}\ln\frac{\eta + \vf k}{\eta - \vf k}
+\end{align}
+
+We have already done the expansion of the first two terms earlier, and we found that that should equal $- \frac{k^2 \vf^2}{3 \eta^2}$. We now need the series expansion of the third term. Like earlier, we can write out the derivatives of $k g(a \pm k)$, keeping in mind that the log will become a difference:
+\begin{align}
+	(k g)' &= g \pm k g' \\
+	(k g)'' &= 2\pm g' + k g''
+\end{align}
+After $k \rightarrow 0$ and the subtraction, the only term remaining will be the $2 \pm g'$ term. This will end up giving us
+\begin{align}
+	\frac12 \frac{\vf }{\eta} k \ln\frac{\eta + \vf k}{\eta - \vf k} &= \frac12 \frac{\vf}{\eta} \frac12 k^2 4  \frac{\vf}{\eta} \\
+	&= \frac{k^2 \vf^2}{\eta^2} 
+\end{align}
+
+Adding this to \eqref{eq:ReducingLindhard:Simplerft}, we end up with 
+\begin{align}
+	1 - \frac12 \left(\frac{\eta}{\vf k} - \frac{\vf k}{\eta} \right)\ln\frac{\eta + \vf k}{\eta - \vf k} &= - \frac{k^2 \vf^2}{3 \eta^2} + \frac{k^2 \vf^2}{\eta^2} \\
+	&= \frac23 \frac{k^2 \vf^2}{\eta^2}
+\end{align}
+
+Plugging this into \eqref{eq:ReducingLindhard:et} gives us
+\begin{align}
+	e_t &= 1 - \frac{3 \omega_p^2 \eta}{2\omega \vf^2 k^2} \left[ 1 - \frac12 \left(\frac{\eta}{\vf k} - \frac{\vf k}{\eta} \right)\ln\frac{\eta + \vf k}{\eta - \vf k} \right] \\
+	&= 1 - \frac{3 \omega_p^2 \eta}{2\omega \vf^2 k^2} \frac23 \frac{k^2 \vf^2}{\eta^2} \\
+	&= 1 - \frac{\omega_p^2}{\omega \eta}\\
+	&= 1 - \frac{\omega_p^2}{\omega \left(\omega + i \nu \right) }
+\end{align}
+So to lowest order, both the longitudinal and transverse dielectric functions reduce to the Drude case in the $k \rightarrow 0$ limit.
 
 \end{document}
