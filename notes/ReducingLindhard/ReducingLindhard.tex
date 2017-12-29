@@ -34,7 +34,7 @@ Defining $\eta = \omega + i \nu$:
 	&= 1 - \frac{\eta}{2 } \frac{\eta - k \vf}{\eta + k\vf} \frac{\left(\eta - k\vf \right)+  \left(\eta + k \vf \right)}{\left( \eta - k \vf \right)^2} \\
 	&= 1 - \frac{\eta}{2 } \frac{1}{\eta + k\vf} \frac{2 \eta}{\eta - k \vf } \\
 	&= 1 - \frac{\eta^2}{\eta^2 - k^2 \vf^2} \\
-	&= \frac{-k^2 \vf^2}{\eta^2 - k^2 \vf^2} \label{eq:ReducingLindhard:f} \\
+	&= \frac{-k^2 \vf^2}{\eta^2 - k^2 \vf^2} \\
 	\lim_{k \to 0} f_l &= 0
 \end{align}
 Note that this goes to $0$ for $k \to 0$.
@@ -43,24 +43,39 @@ Note that this goes to $0$ for $k \to 0$.
 The previous section gives the limit, but having the actual series expansion is probably more valuable. Again, with $\eta = \omega + i \nu$,
 \begin{align}
 	f_l(\flatfrac{(\omega + i \nu)}{k v_f}) &= 1 - \frac{\flatfrac{(\omega + i \nu)}{k v_f}}{2} \ln\frac{\flatfrac{(\omega + i \nu)}{k v_f} + 1}{\flatfrac{(\omega + i \nu)}{k v_f} - 1} \\
-	f_l(\flatfrac{\eta}{k \vf}) &= 1 - \frac{\eta}{2 \vf k} \ln\frac{\eta + k \vf}{\eta - k\vf} 
+	f_l(\flatfrac{\eta}{k \vf}) &= 1 - \frac{\eta}{2 \vf k} \ln\frac{\eta + k \vf}{\eta - k\vf} \label{eq:ReducingLindhard:simplef}
 \end{align}
 We want to expand up to $k^2$ overall, to cancel out the $k^2$ in the denominator of \eqref{eq:ReducingLindhard:LindhardEps}. We're looking at the function. 
 \begin{equation}
 	\frac{\ln(\eta + k \vf)}{k} - \frac{\ln(\eta - k \vf)}{k} 
 \end{equation}
 
-%The derivatives are as follows:
-%\begin{align}
-%	\dv[0]{\frac{\ln(\eta \pm k\vf)}{k}}{k} &= \frac{\ln(\eta \pm k\vf)}{k}\\
-%	\dv[1]{\frac{\ln(\eta \pm k\vf)}{k}}{k} &= \frac{\pm \vf}{k \left(\eta \pm k\vf \right)} - \frac{\ln(\eta \pm k\vf)}{k^2}\\
-%	\dv[2]{\frac{\ln(\eta \pm k\vf)}{k}}{k} &= frac{}{}\\
-%\end{align}
 Generally, the derivatives of $\frac{g(a \pm x)}{x}$ are
 \begin{align}
 	\left(\frac{g(x)}{x} \right)' &= \frac{\pm g'}{x} - \frac{g}{x^2} \\
-	\left(\frac{g(x)}{x} \right)'' &= \frac{g''}{x} - \frac{\pm 2g'}{x^2}+ \frac{2 g}{x^3}
+	\left(\frac{g(x)}{x} \right)'' &= \frac{g''}{x} - \frac{\pm 2g'}{x^2}+ \frac{2 g}{x^3} \\
+	\left(\frac{g(x)}{x} \right)''' &= \frac{\pm g'''}{x} - \frac{  3g''}{x^2}+ \frac{\pm 6 g'}{x^3} - \frac{6 g} {x^4}
 \end{align}
+
+When we take the difference, we see that we'll only end up keeping (and doubling) the terms of odd derivatives. Thus, up to this order, the series for $\frac{g(a + x) - g(a - x)}{x}$ will look like:
+\begin{align}
+	\frac12 \frac{g(a + x) - g(a - x)}{x} &= x \frac{g'}{x} - \frac12 x^2 \frac{2 g'}{x^2} + \frac16 x^3 \left( \frac{g'''}{x} + \frac{6 g'}{x^3} \right) \\
+	&= g' - g' + \frac16 x^2 g''' + g' \\
+	\frac{g(a + x) - g(a - x)}{x} &= 2g' + \frac13 x^2 g''' + \mathcal{O}(x^4)
+\end{align}
+This type of result is to be expected: we are starting with an even function. For $g = \ln(\eta + k \vf)$, we have
+\begin{align}
+	g'(k = 0) = \frac{\vf}{\eta} \\
+	g'''(k = 0) = \frac{2 \vf^3}{\eta^3}
+\end{align}
+Plugging these into \eqref{eq:ReducingLindhard:simplef} gives us:
+\begin{align}
+	f_l(\flatfrac{\eta}{k \vf}) &= 1 - \frac{\eta}{2 \vf k} \ln\frac{\eta + k \vf}{\eta - k\vf} \\
+	&= 1- \frac{\eta}{2\vf} \left( 2 \frac{\vf}{\eta} + \frac13 k^2 \frac{2 \vf^3}{\eta^3} \right) \\
+	&= 1 - 1 - \frac13 k^2 \frac{\vf^2}{\eta^2}	\\
+	&= - \frac{k^2 \vf^2}{3 \eta^2} \label{eq:ReducingLindhard:f}
+\end{align}
+This gives us a simple approximation for $f_l$ in the long wavelength limit.
 
 \subsection{Back to dielectric}
 \begin{equation} \label{eq:ReducingLindhard:EpsWithF} 
@@ -74,9 +89,9 @@ In the denominator, we can note that $\omega$ should dominate $i \nu f$, because
 Using \eqref{eq:ReducingLindhard:f}, we get
 \begin{align}
 	\epsilon_l &= 1 + \frac{3 \omega_p^2}{k^2 v_F^2} \frac{\left(\omega + i \nu \right) f_l(\flatfrac{(\omega + i \nu)}{k v_f})}{\omega} \\
-	&= 1 + \frac{3 \omega_p^2}{k^2 v_F^2} \frac{\left(\omega + i \nu \right) \frac{-k^2 \vf^2}{\eta^2 - k^2 \vf^2}}{\omega} \\
-	&= 1 - 3 \omega_p^2 \frac{\left(\omega + i \nu \right) \frac{1}{\eta^2}}{\omega} \\
-	&= 1 - \frac{3 \omega_p^2}{\omega \left( \omega + i \nu \right)}
+	&= 1 + \frac{3 \omega_p^2}{k^2 v_F^2} \frac{\left(\omega + i \nu \right) \frac{-k^2 \vf^2}{3 \eta^2}}{\omega} \\
+	&= 1 - 3 \omega_p^2 \frac{\eta \frac{1}{ 3\eta^2}}{\omega} \\
+	&= 1 - \frac{ \omega_p^2}{\omega \left( \omega + i \nu \right)}
 \end{align}
 
 This is the Drude limit.
