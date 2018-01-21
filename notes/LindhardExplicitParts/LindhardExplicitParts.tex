@@ -75,13 +75,33 @@ We can eliminate all the terms proportional to $\nu$ in the numerator, as they w
 \begin{align}
 	\epsilon_l &= 1 + \frac{k_{TF}^2}{k^2} \frac{\left(\omega + i \nu \right) \left( 1 - \frac{\omega + i \nu}{2 k\vf} \left(\ln\abs{\frac{\omega + k\vf}{\omega - k\vf}} - \sigma i \pi\right)\right)}{\omega + i \nu\left( 1 - \frac{\omega + i \nu}{2 k\vf} \left(\ln\abs{\frac{\omega + k\vf}{\omega - k\vf}} - \sigma i \pi\right)\right)} \\
 	\epsilon_l &= 1 + \frac{k_{TF}^2}{k^2} \frac{\omega \left( 1 - \frac{\omega}{2 k\vf} \left(\ln\abs{\frac{\omega + k\vf}{\omega - k\vf}} - \sigma i \pi\right)\right)}{\omega + i \nu\left( 1 - \frac{\omega + i \nu}{2 k\vf} \left(\ln\abs{\frac{\omega + k\vf}{\omega - k\vf}} - \sigma i \pi\right)\right)} \\
-	\epsilon_l &= 1 + \frac{k_{TF}^2}{k^2} \frac{\omega}{2 k \vf} \frac{ 2 k\vf - \omega \ln\abs{\frac{\omega + k\vf}{\omega - k\vf}} + i \omega \sigma}{\omega + i \nu\left( 1 - \frac{\omega + i \nu}{2 k\vf} \left(\ln\abs{\frac{\omega + k\vf}{\omega - k\vf}} - \sigma i \pi\right)\right)} 
+	\epsilon_l &= 1 + \frac{k_{TF}^2}{k^2} \frac{\omega}{2 k \vf} \frac{ 2 k\vf - \omega \ln\abs{\frac{\omega + k\vf}{\omega - k\vf}} + i \omega \pi \sigma}{\omega + i \nu\left( 1 - \frac{\omega + i \nu}{2 k\vf} \left(\ln\abs{\frac{\omega + k\vf}{\omega - k\vf}} - \sigma i \pi\right)\right)} \label{eq:LindhardExplicitParts:NumeratorSimp}
 \end{align}
 We can now look at just the denominator:
 \begin{align}
 	&= \omega + i \nu\left( 1 - \frac{\omega + i \nu}{2 k\vf} \left(\ln\abs{\frac{\omega + k\vf}{\omega - k\vf}} - \sigma i \pi\right)\right) \\
 	&= \omega + i \nu - i\nu\frac{\omega + i \nu}{2 k\vf} \left(\ln\abs{\frac{\omega + k\vf}{\omega - k\vf}} - \sigma i \pi\right) \\
-	&= \omega + i \nu + \frac{\nu^2 - i \nu \omega}{2 k \vf}  \left(\ln\abs{\frac{\omega + k\vf}{\omega - k\vf}} - \sigma i \pi\right)
+	&= \omega + i \nu + \frac{\nu^2 - i \nu \omega}{2 k \vf}  \left(\ln\abs{\frac{\omega + k\vf}{\omega - k\vf}} - \sigma i \pi\right) \\
+	&= \omega + \frac{\nu^2}{2 k \vf} L - \frac{\nu \omega \pi \sigma}{2 k \vf} + i\nu - i\frac{\nu \omega}{2 k \vf} L - i \frac{\nu^2 \sigma \pi}{2 k \vf},
 \end{align}
- 
+where $L = \ln\abs{\frac{\omega + k\vf}{\omega - k\vf}}$. We can notice here that all the imaginary terms are proportional to $\nu$. We can ignore the $\nu^2$ term, as it will go to zero faster than the other terms. We can see that we essentially have two regimes: if $\omega < 2 k\vf$, this will have a positive imaginary part, and if $\omega > 2k\vf$, the imaginary part will be negative.
+
+We can also notice that the only real part that will survive the limiting process is simply $\omega$ (which is of course clear from the original form of the denominator anyway). This lets us essentially write the denominator as 
+\begin{align}
+	\omega + i \nu \zeta C,
+\end{align}
+where I'm defining $\zeta$ as $1$ if $\omega < 2k\vf$, and $-1$ otherwise. We also can note that $C$ is an irrelevant positive constant; when we take the long scattering time limit, all that matters is that the imaginary part is proportional to $\nu$. Plugging this back into \eqref{eq:LindhardExplicitParts:NumeratorSimp} gives us 
+\begin{align}
+	\epsilon_l &= 1 + \frac{k_{TF}^2}{k^2} \frac{\omega}{2 k \vf} \frac{ 2 k\vf - \omega \ln\abs{\frac{\omega + k\vf}{\omega - k\vf}} + i \omega \pi \sigma}{\omega + i \nu\left( 1 - \frac{\omega + i \nu}{2 k\vf} \left(\ln\abs{\frac{\omega + k\vf}{\omega - k\vf}} - \sigma i \pi\right)\right)} \\
+	\epsilon_l &=  1 + \frac{k_{TF}^2}{k^2} \frac{\omega}{2 k \vf} \frac{ 2 k\vf - \omega \ln\abs{\frac{\omega + k\vf}{\omega - k\vf}} + i \omega\pi \sigma}{\omega + i \nu \zeta C}  \\
+	&= 1 + \frac{k_{TF}^2}{k^2} \frac{\omega}{2 k \vf} \left( 2 k\vf - \omega \ln\abs{\frac{\omega + k\vf}{\omega - k\vf}} + i \omega \pi \sigma\right)\left(\frac{1}{\omega} - i \pi \zeta \delta(\omega) \right) \\
+	&= 1 + \frac{k_{TF}^2}{k^2} \frac{\omega}{2 k \vf} \left( \frac{2k\vf}{\omega}- L + i \pi \sigma - i \pi \zeta 2 k \vf \delta(\omega)  +\left( i  L \zeta + \sigma \zeta\right) \pi \omega \delta(\omega)\right)
+\end{align}
+We can eliminate the terms proportional to $\omega \delta(\omega)$:
+\begin{align}
+	\epsilon_l 	&= 1 + \frac{k_{TF}^2}{k^2} \frac{\omega}{2 k \vf} \left( \frac{2k\vf}{\omega}- L + i \pi \sigma - i \pi \zeta 2 k \vf \delta(\omega) \right) \\
+	&= 1 + \frac{k_{TF}^2}{k^2} \left( 1 -\frac{\omega}{2 k \vf} L + \frac{\omega}{2 k \vf} i\pi \sigma - i \pi \zeta\omega \delta(\omega) \right) \\
+	&= 1 + \frac{k_{TF}^2}{k^2} \left( 1 -\frac{\omega}{2 k \vf} L + \frac{\omega}{2 k \vf} i \pi\sigma  \right) 
+\end{align}
+
 \end{document}
