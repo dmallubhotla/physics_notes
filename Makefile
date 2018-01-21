@@ -1,4 +1,4 @@
-NOTE_NAMES = DrudeTheory ReducingLindhard
+NOTE_NAMES = DrudeTheory ReducingLindhard LindhardExplicitParts
 NOTE_DIRS = $(addprefix notes/, $(addsuffix /, $(NOTE_NAMES)))
 NOTE_PDFS =   $(join $(NOTE_DIRS), $(addsuffix .pdf, $(NOTE_NAMES)))
 NOTE_TEXS = $(NOTE_PDFS:.pdf=.tex)
@@ -10,7 +10,9 @@ NOTE_DEPEND = $(NOTE_TEXS)
 
 LATEXMK = latexmk -use-make -pdf -dvi- -ps- 
 
-all: main.pdf $(NOTE_PDFS)
+all: publish
+
+main: main.pdf $(NOTE_PDFS)
 
 parts: $(NOTE_PDFS)
 
@@ -38,5 +40,5 @@ clean:
 	done;
 	rm docs/*.pdf
 	
-publish: all parts
+publish: main parts
 	find . -path ./docs -prune -o -name "*.pdf" -exec cp {} docs \;
