@@ -40,4 +40,21 @@ From Pines, we have the forms
 \end{equation}
 
 
+\subsection{Long relaxation time forms of the logs}
+In order to analyse the $\nu \rightarrow 0$ limit, we can start by looking at what happens to the logarithms in the Lindhard function:
+\begin{equation}
+	\ln\frac{\omega + i \nu + k\vf}{\omega + i \nu - k\vf}
+\end{equation}
+The first thing to note is that the numerator will always have a very small, positive argument, while the denominator will have a small argument which may be positive or negative. As Lindhard mentions, these logarithms should all have imaginary parts between $\pm i \pi$. This effectively means we can treat each logarithm as giving the principal value, which give us a result that looks like
+\begin{equation}
+	\ln\frac{\sqrt{(\omega + k\vf) ^2 + \nu^2}}{\sqrt{(\omega - k\vf) ^2 + \nu^2}} + i \left(\theta_+ - \theta_- \right),
+\end{equation}
+where $\theta_+$ and $\theta_-$ are the arguments of the numerator and denominator. For small $\nu$, $\theta_+$ is proportional to $\nu$, as it'll be determined by an arcsine. However, the denominator may be negative, which would contribute a factor of $\theta_- = +i\pi$ (with a plus sign because $\nu$ would be just above the real line).
+\begin{align}
+	\ln\frac{\omega + i \nu + k\vf}{\omega + i \nu - k\vf} &= \ln\frac{\sqrt{(\omega + k\vf) ^2 + \nu^2}}{\sqrt{(\omega - k\vf) ^2 + \nu^2}} + i \left(\theta_+ - \theta_- \right) \\
+	&= \ln\frac{\sqrt{(\omega + k\vf) ^2}}{\sqrt{(\omega - k\vf) ^2}} - \sigma i \pi \\
+	&= \ln\abs{\frac{\omega + k\vf}{\omega - k\vf}} - \sigma i \pi,
+\end{align}
+where $\sigma = 1$ if $\omega < k\vf$, and $0$ otherwise.
+
 \end{document}
