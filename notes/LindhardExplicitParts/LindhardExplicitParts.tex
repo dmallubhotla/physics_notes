@@ -7,6 +7,37 @@
 % !TeX spellcheck = en_GB
 \section{Explicit parts of Lindhard function}
 
+We want to find the explicit real and imaginary parts of the Lindhard function. To begin with, we can start with the case where $\nu \rightarrow 0$, which means long relaxation times.
+
+We have our Lindhard form
+\begin{equation} \label{eq:LindhardExplicitParts:LindhardEps} 
+ \epsilon_l = 1 + \frac{3 \omega_p^2}{k^2 v_F^2} \frac{\left(\omega + i \nu \right) f_l(\flatfrac{(\omega + i \nu)}{k v_f})}{\omega + i \nu f_l(\flatfrac{(\omega + i \nu)}{k v_f})},
+\end{equation}
+where 
+\begin{equation}
+	f_l(x) = 1 - \frac{x}{2} \ln\frac{x + 1}{x - 1}.
+\end{equation}
+
 \subsection{Pines result}
+
+From Pines, we have the forms
+
+\begin{align} 
+	\Re[\epsilon_l]	= 1 &+ \frac{k_{TF}^2}{k^2} \Biggl(	
+		\frac12 + \frac{k_F}{4k} \biggl[ 
+			\left( 1 - \frac{\left(\omega - \frac{\hbar k^2}{2m} \right)^2}{k^2\vf^2} \right) \ln\left[\frac{\omega - k \vf - \frac{\hbar k^2}{2m}}{\omega + k \vf - \frac{\hbar k^2}{2m}}\right] \nonumber \\
+			&+ \left(1 - \frac{\left(\omega + \frac{\hbar k^2}{2m} \right)^2}{k^2 \vf^2} \right) \ln\left[\frac{\omega + k\vf + \frac{\hbar k^2}{2m}}{\omega - k \vf + \frac{\hbar k^2}{2m}}\right]			
+		\biggr]
+	 \Biggr)  \label{eq:LindhardExplicitParts:PinesReal}
+\end{align}
+
+\begin{equation}
+	\Im[\epsilon_l] = \begin{cases}
+		\dfrac{\pi}{2} \dfrac{\omega}{k\vf} \dfrac{k_{TF}^2}{k^2}, & \omega \le k \vf - \frac{\hbar k^2}{2m} \\
+		\dfrac{\pi}{4} \dfrac{k_F}{k} \left( 1 - \dfrac{\left(\omega - \frac{\hbar k^2}{2m}\right)^2 }{k^2\vf^2} \right)\dfrac{k_{TF}^2}{k^2}, & k \vf - \frac{\hbar k^2}{2m} \le \omega \le k \vf + \frac{\hbar k^2}{2m} \\ 
+		0, & \omega \ge k \vf + \frac{\hbar k^2}{2m}  \\
+	\end{cases} \label{eq:LindhardExplicitParts:PinesImaginary}
+\end{equation}
+
 
 \end{document}
