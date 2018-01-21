@@ -57,4 +57,31 @@ where $\theta_+$ and $\theta_-$ are the arguments of the numerator and denominat
 \end{align}
 where $\sigma = 1$ if $\omega < k\vf$, and $0$ otherwise.
 
+\subsection{Taking long scattering time limit}
+
+To make our constants line up with the Pines form, we'll use the definition $k_{TF}^2 = \frac{3 \omega_p^2}{\vf^2}$, giving us 
+\begin{align} 
+ \epsilon_l &= 1 + \frac{k_{TF}^2}{k^2} \frac{\left(\omega + i \nu \right) f_l(\flatfrac{(\omega + i \nu)}{k v_f})}{\omega + i \nu f_l(\flatfrac{(\omega + i \nu)}{k v_f})},
+\end{align}
+We can't simply set $\nu = 0$, as we need to respect the relation
+\begin{equation}
+	\frac{1}{x + i \delta} = \frac{1}{x} - i \pi \delta(x)	
+\end{equation}
+
+\begin{align} 
+ \epsilon_l &= 1 + \frac{k_{TF}^2}{k^2} \frac{\left(\omega + i \nu \right) \left( 1 - \frac{\omega + i \nu}{2 k\vf} \left(\ln\abs{\frac{\omega + k\vf}{\omega - k\vf}} - \sigma i \pi\right)\right)}{\omega + i \nu\left( 1 - \frac{\omega + i \nu}{2 k\vf} \left(\ln\abs{\frac{\omega + k\vf}{\omega - k\vf}} - \sigma i \pi\right)\right)}.
+\end{align}
+We can eliminate all the terms proportional to $\nu$ in the numerator, as they will disappear as we take our limit:
+\begin{align}
+	\epsilon_l &= 1 + \frac{k_{TF}^2}{k^2} \frac{\left(\omega + i \nu \right) \left( 1 - \frac{\omega + i \nu}{2 k\vf} \left(\ln\abs{\frac{\omega + k\vf}{\omega - k\vf}} - \sigma i \pi\right)\right)}{\omega + i \nu\left( 1 - \frac{\omega + i \nu}{2 k\vf} \left(\ln\abs{\frac{\omega + k\vf}{\omega - k\vf}} - \sigma i \pi\right)\right)} \\
+	\epsilon_l &= 1 + \frac{k_{TF}^2}{k^2} \frac{\omega \left( 1 - \frac{\omega}{2 k\vf} \left(\ln\abs{\frac{\omega + k\vf}{\omega - k\vf}} - \sigma i \pi\right)\right)}{\omega + i \nu\left( 1 - \frac{\omega + i \nu}{2 k\vf} \left(\ln\abs{\frac{\omega + k\vf}{\omega - k\vf}} - \sigma i \pi\right)\right)} \\
+	\epsilon_l &= 1 + \frac{k_{TF}^2}{k^2} \frac{\omega}{2 k \vf} \frac{ 2 k\vf - \omega \ln\abs{\frac{\omega + k\vf}{\omega - k\vf}} + i \omega \sigma}{\omega + i \nu\left( 1 - \frac{\omega + i \nu}{2 k\vf} \left(\ln\abs{\frac{\omega + k\vf}{\omega - k\vf}} - \sigma i \pi\right)\right)} 
+\end{align}
+We can now look at just the denominator:
+\begin{align}
+	&= \omega + i \nu\left( 1 - \frac{\omega + i \nu}{2 k\vf} \left(\ln\abs{\frac{\omega + k\vf}{\omega - k\vf}} - \sigma i \pi\right)\right) \\
+	&= \omega + i \nu - i\nu\frac{\omega + i \nu}{2 k\vf} \left(\ln\abs{\frac{\omega + k\vf}{\omega - k\vf}} - \sigma i \pi\right) \\
+	&= \omega + i \nu + \frac{\nu^2 - i \nu \omega}{2 k \vf}  \left(\ln\abs{\frac{\omega + k\vf}{\omega - k\vf}} - \sigma i \pi\right)
+\end{align}
+ 
 \end{document}
