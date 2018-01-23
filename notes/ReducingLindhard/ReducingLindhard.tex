@@ -143,6 +143,31 @@ Plugging this into \eqref{eq:ReducingLindhard:et} gives us
 	&= 1 - \frac{\omega_p^2}{\omega \eta}\\
 	&= 1 - \frac{\omega_p^2}{\omega \left(\omega + i \nu \right) }
 \end{align}
-So to lowest order, both the longitudinal and transverse dielectric functions reduce to the Drude case in the $k \rightarrow 0$ limit.
+So to lowest order, both the longitudinal and transverse dielectric functions reduce to the Drude case in the $k \rightarrow 0$ limit. This makes intuitive sense: The Drude derivation assumes an isotropic $\vec{E}$. There should remain no distinction between transverse and longitudinal in this limit.
+
+\section{Reducing Lindhard to Thomas-Fermi}
+
+We can also try to recover the Thomas-Fermi dielectric function
+\begin{equation}
+	\epsilon_l = 1 + \frac{k_{TF}^2}{k^2}
+\end{equation}
+
+We'll see this in the static limit $\omega \rightarrow 0$.
+
+\subsection{Longitudinal Lindhard form going to TF form}
+\begin{equation} \label{eq:ReducingLindhard:LindhardEpsToTF}
+ \epsilon_l = 1 + \frac{3 \omega_p^2}{k^2 v_F^2} \frac{\left(\omega + i \nu \right) f_l(\flatfrac{(\omega + i \nu)}{k v_f})}{\omega + i \nu f_l(\flatfrac{(\omega + i \nu)}{k v_f})},
+\end{equation}
+
+This limit is simpler to take:
+\begin{align}
+	 \epsilon_l &= 1 + \frac{3 \omega_p^2}{k^2 v_F^2} \frac{\left(\omega + i \nu \right) f_l(\flatfrac{(\omega + i \nu)}{k v_f})}{\omega + i \nu f_l(\flatfrac{(\omega + i \nu)}{k v_f})} \\
+	 &= 1 + \frac{3 \omega_p^2}{k^2 v_F^2} \frac{i \nu  f_l(\flatfrac{(\omega + i \nu)}{k v_f})}{  i \nu f_l(\flatfrac{(\omega + i \nu)}{k v_f})} \\
+	 &=  1 + \frac{3 \omega_p^2}{k^2 v_F^2}
+\end{align}
+Using the definition $k_{TF}^2 = \frac{3 \omega_p^2}{\vf^2}$, we rather easily get the Thomas-Fermi form.
+
+It's worth noting that we get some disagreement between the Thomas-Fermi form and the Drude form around the region where both $k$ and $\omega$ go to zero.
+
 
 \end{document}
