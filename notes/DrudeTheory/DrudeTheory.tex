@@ -89,6 +89,64 @@ We can quickly Fourier transform this, using $\dv{}{t} \rightarrow -i \omega$, a
 \end{align}
 which gives us our AC conductivity in equation \eqref{eq:DrudeTheory:SigmaAC}.
 
-Now for our dielectric constant, we have to find some other defining relation on par with \eqref{eq:DrudeTheory:ConductivityDef}.
+\subsubsection{Dielectric constant}
 
+Now for our dielectric constant, we have to find some other defining relation on par with \eqref{eq:DrudeTheory:ConductivityDef}. The relevant equation we'll want to look at looks like our wave equation
+\begin{equation}
+	-\del^2 \vec{E} = \frac{\omega^2}{v_{\textrm{phase}}^2} \vec{E}
+\end{equation}
+
+The phase velocity would satisfy 
+\begin{equation}
+	\frac{1}{v_{\textrm{phase}}^2} = \mu \epsilon
+\end{equation}
+The cleanest thing to do is to consider relative dielectric constants $\epsilon_r = \frac{\epsilon}{\epsilon_0}$. For a non-magnetic material, where $\mu = \mu_0$, and we can see that 
+\begin{align}
+	\frac{1}{v_{\textrm{phase}}^2} &= \mu \epsilon \\
+	&= \mu_0 \epsilon_0 \epsilon_r \\
+	&= \frac{1}{c^2} \epsilon_r,
+\end{align}
+which makes our defining relationship 
+\begin{equation} \label{eq:DrudeTheory:DielectricDef}
+	-\laplacian{\vec{E}} = \frac{\omega^2}{c^2} \epsilon_r(\omega) \vec{E}
+\end{equation}
+
+For non-magnetic materials, thus, we have our defining relationship. The Drude model falls out of solving for this using Maxwell's equations (in SI units!):
+\begin{align}
+	\div{\vec{E}} &= \frac{\rho}{\epsilon} \\
+	\curl{\vec{E}} &= - \pdv{\vec{B}}{t} \\
+	\div{\vec{B}} &= 0 \\
+	\curl{\vec{B}} &= \mu_0 \vec{j} + \mu_0 \epsilon_0 \pdv{\vec{E}}{t}
+\end{align}
+
+Now, in order to find $-\laplacian{\vec{E}}$, we can use everyone's fav identity
+\begin{equation}
+	\curl(\curl{\vec{\Upsilon}}) = \grad(\div{\vec{\Upsilon}}) - \laplacian{\vec{\Upsilon}}
+\end{equation}
+Our goal is thus to find $\curl(\curl{\vec{E}})$
+\begin{align}
+	 - \laplacian{\vec{E}} &= \curl(\curl{\vec{E}}) - \grad(\div{\vec{E}}) \\
+	 &= \curl(\curl{\vec{E}}) - \grad(0) \\
+	 &= \curl(- \pdv{\vec{B}}{t})
+\end{align}
+Working in Fourier transformed time space, with $\dv{}{t} \rightarrow -i \omega$, 
+\begin{align}
+	- \laplacian{\vec{E}} &= i\omega \curl(\vec{B}) \\ 
+	&= i \omega \left(\mu_0 \vec{j} + \mu_0 \epsilon_0 \pdv{\vec{E}}{t} \right) \\
+	&= i \omega \left(\frac{1}{c^2 \epsilon_0} \vec{j} + \frac{1}{c^2} \pdv{\vec{E}}{t} \right) \\ 
+	&= i \frac{\omega}{c^2} \left(\frac{1}{\epsilon_0} \vec{j} - i\omega \vec{E} \right) \\
+	&= \frac{\omega}{c^2} \left(\omega \vec{E} + i \frac{1}{\epsilon_0} \vec{j} \right) \\  
+	&= \frac{\omega^2}{c^2} \left(\vec{E} + i \frac{1}{\omega \epsilon_0} \vec{j} \right)
+\end{align}
+Up to now, the only real assumptions have been that we're working with a non-magnetic material, and that we're looking at waves specifically. We can now insert the assumption that $\vec{j} = \sigma \vec{E}$. One important note here is that we're implicitly assuming we have this well defined relationship, which I believe only really works for cases where $\vec{E}$ (and thus, $\vec{J}$) is constant over scales larger than the electron mean free path. Otherwise, we wouldn't be able to write this down in this way (this is slightly weaker than our earlier assumption of constant field, and explains how to find out how big of field wavelengths the Drude results will be valid over). Plugging this in,
+\begin{align}
+	- \laplacian{\vec{E}} &= \frac{\omega^2}{c^2} \left(\vec{E} + i \frac{1}{\omega \epsilon_0} \sigma \vec{E} \right) \\
+	&= \frac{\omega^2}{c^2} \left(1+ \frac{i \sigma}{\omega \epsilon_0} \right) \vec{E}
+\end{align}
+
+Comparing this with \eqref{eq:DrudeTheory:DielectricDef}, we see that we have, in SI units,
+\begin{equation}
+	\epsilon_r = 1 + \frac{i \sigma}{\omega \epsilon_0}, 
+\end{equation}
+confirming the earlier claim. 
 \end{document}
