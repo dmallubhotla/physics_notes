@@ -10,10 +10,10 @@
 We want to find the explicit real and imaginary parts of the Lindhard function. To begin with, we can start with the case where $\nu \rightarrow 0$, which means long relaxation times.
 
 We have our Lindhard form
-\begin{equation} \label{eq:LindhardExplicitParts:LindhardEps} 
+\begin{equation} \label{eq:LindhardExplicitParts:LindhardEps}
  \epsilon_l = 1 + \frac{3 \omega_p^2}{k^2 v_F^2} \frac{\left(\omega + i \nu \right) f_l(\flatfrac{(\omega + i \nu)}{k v_f})}{\omega + i \nu f_l(\flatfrac{(\omega + i \nu)}{k v_f})},
 \end{equation}
-where 
+where
 \begin{equation}
 	f_l(x) = 1 - \frac{x}{2} \ln\frac{x + 1}{x - 1}.
 \end{equation}
@@ -22,11 +22,11 @@ where
 
 From Pines, we have the forms
 
-\begin{align} 
-	\Re[\epsilon_l]	= 1 &+ \frac{k_{TF}^2}{k^2} \Biggl(	
-		\frac12 + \frac{k_F}{4k} \biggl[ 
-			\left( 1 - \frac{\left(\omega - \frac{\hbar k^2}{2m} \right)^2}{k^2\vf^2} \right) \ln\left[\frac{\omega - k \vf - \frac{\hbar k^2}{2m}}{\omega + k \vf - \frac{\hbar k^2}{2m}}\right] \nonumber \\
-			&+ \left(1 - \frac{\left(\omega + \frac{\hbar k^2}{2m} \right)^2}{k^2 \vf^2} \right) \ln\left[\frac{\omega + k\vf + \frac{\hbar k^2}{2m}}{\omega - k \vf + \frac{\hbar k^2}{2m}}\right]			
+\begin{align}
+	\Re[\epsilon_l]	= 1 &+ \frac{k_{TF}^2}{k^2} \Biggl(
+		\frac12 + \frac{k_F}{4k} \biggl[
+			\left( 1 - \frac{\left(\omega - \frac{\hbar k^2}{2m} \right)^2}{k^2\vf^2} \right) \ln\abs{\frac{\omega - k \vf - \frac{\hbar k^2}{2m}}{\omega + k \vf - \frac{\hbar k^2}{2m}}} \nonumber \\
+			&+ \left(1 - \frac{\left(\omega + \frac{\hbar k^2}{2m} \right)^2}{k^2 \vf^2} \right) \ln\abs{\frac{\omega + k\vf + \frac{\hbar k^2}{2m}}{\omega - k \vf + \frac{\hbar k^2}{2m}}}
 		\biggr]
 	 \Biggr)  \label{eq:LindhardExplicitParts:PinesReal}
 \end{align}
@@ -34,7 +34,7 @@ From Pines, we have the forms
 \begin{equation}
 	\Im[\epsilon_l] = \begin{cases}
 		\dfrac{\pi}{2} \dfrac{\omega}{k\vf} \dfrac{k_{TF}^2}{k^2}, & \omega \le k \vf - \frac{\hbar k^2}{2m} \\
-		\dfrac{\pi}{4} \dfrac{k_F}{k} \left( 1 - \dfrac{\left(\omega - \frac{\hbar k^2}{2m}\right)^2 }{k^2\vf^2} \right)\dfrac{k_{TF}^2}{k^2}, & k \vf - \frac{\hbar k^2}{2m} \le \omega \le k \vf + \frac{\hbar k^2}{2m} \\ 
+		\dfrac{\pi}{4} \dfrac{k_F}{k} \left( 1 - \dfrac{\left(\omega - \frac{\hbar k^2}{2m}\right)^2 }{k^2\vf^2} \right)\dfrac{k_{TF}^2}{k^2}, & k \vf - \frac{\hbar k^2}{2m} \le \omega \le k \vf + \frac{\hbar k^2}{2m} \\
 		0, & \omega \ge k \vf + \frac{\hbar k^2}{2m}  \\
 	\end{cases} \label{eq:LindhardExplicitParts:PinesImaginary}
 \end{equation}
@@ -59,16 +59,16 @@ where $\sigma = 1$ if $\omega < k\vf$, and $0$ otherwise.
 
 \subsection{Taking long scattering time limit}
 
-To make our constants line up with the Pines form, we'll use the definition $k_{TF}^2 = \frac{3 \omega_p^2}{\vf^2}$, giving us 
-\begin{align} 
+To make our constants line up with the Pines form, we'll use the definition $k_{TF}^2 = \frac{3 \omega_p^2}{\vf^2}$, giving us
+\begin{align}
  \epsilon_l &= 1 + \frac{k_{TF}^2}{k^2} \frac{\left(\omega + i \nu \right) f_l(\flatfrac{(\omega + i \nu)}{k v_f})}{\omega + i \nu f_l(\flatfrac{(\omega + i \nu)}{k v_f})},
 \end{align}
 We can't simply set $\nu = 0$, as we need to respect the relation
 \begin{equation}
-	\frac{1}{x + i \delta} = \frac{1}{x} - i \pi \delta(x)	
+	\frac{1}{x + i \delta} = \frac{1}{x} - i \pi \delta(x)
 \end{equation}
 
-\begin{align} 
+\begin{align}
  \epsilon_l &= 1 + \frac{k_{TF}^2}{k^2} \frac{\left(\omega + i \nu \right) \left( 1 - \frac{\omega + i \nu}{2 k\vf} \left(\ln\abs{\frac{\omega + k\vf}{\omega - k\vf}} - \sigma i \pi\right)\right)}{\omega + i \nu\left( 1 - \frac{\omega + i \nu}{2 k\vf} \left(\ln\abs{\frac{\omega + k\vf}{\omega - k\vf}} - \sigma i \pi\right)\right)}.
 \end{align}
 We can eliminate all the terms proportional to $\nu$ in the numerator, as they will disappear as we take our limit:
@@ -86,11 +86,11 @@ We can now look at just the denominator:
 \end{align}
 where $L = \ln\abs{\frac{\omega + k\vf}{\omega - k\vf}}$. We can notice here that all the imaginary terms are proportional to $\nu$. We can ignore the $\nu^2$ term, as it will go to zero faster than the other terms. We can see that we essentially have two regimes: if $\omega < 2 k\vf$, this will have a positive imaginary part, and if $\omega > 2k\vf$, the imaginary part will be negative.
 
-We can also notice that the only real part that will survive the limiting process is simply $\omega$ (which is of course clear from the original form of the denominator anyway). This lets us essentially write the denominator as 
+We can also notice that the only real part that will survive the limiting process is simply $\omega$ (which is of course clear from the original form of the denominator anyway). This lets us essentially write the denominator as
 \begin{align}
 	\omega + i \nu \zeta C,
 \end{align}
-where I'm defining $\zeta$ as $1$ if $\omega < 2k\vf$, and $-1$ otherwise. We also can note that $C$ is an irrelevant positive constant; when we take the long scattering time limit, all that matters is that the imaginary part is proportional to $\nu$. Plugging this back into \eqref{eq:LindhardExplicitParts:NumeratorSimp} gives us 
+where I'm defining $\zeta$ as $1$ if $\omega < 2k\vf$, and $-1$ otherwise. We also can note that $C$ is an irrelevant positive constant; when we take the long scattering time limit, all that matters is that the imaginary part is proportional to $\nu$. Plugging this back into \eqref{eq:LindhardExplicitParts:NumeratorSimp} gives us
 \begin{align}
 	\epsilon_l &= 1 + \frac{k_{TF}^2}{k^2} \frac{\omega}{2 k \vf} \frac{ 2 k\vf - \omega \ln\abs{\frac{\omega + k\vf}{\omega - k\vf}} + i \omega \pi \sigma}{\omega + i \nu\left( 1 - \frac{\omega + i \nu}{2 k\vf} \left(\ln\abs{\frac{\omega + k\vf}{\omega - k\vf}} - \sigma i \pi\right)\right)} \\
 	\epsilon_l &=  1 + \frac{k_{TF}^2}{k^2} \frac{\omega}{2 k \vf} \frac{ 2 k\vf - \omega \ln\abs{\frac{\omega + k\vf}{\omega - k\vf}} + i \omega\pi \sigma}{\omega + i \nu \zeta C}  \\
@@ -99,9 +99,54 @@ where I'm defining $\zeta$ as $1$ if $\omega < 2k\vf$, and $-1$ otherwise. We al
 \end{align}
 We can eliminate the terms proportional to $\omega \delta(\omega)$:
 \begin{align}
-	\epsilon_l 	&= 1 + \frac{k_{TF}^2}{k^2} \frac{\omega}{2 k \vf} \left( \frac{2k\vf}{\omega}- L + i \pi \sigma - i \pi \zeta 2 k \vf \delta(\omega) \right) \\
+	\epsilon_l &= 1 + \frac{k_{TF}^2}{k^2} \frac{\omega}{2 k \vf} \left( \frac{2k\vf}{\omega}- L + i \pi \sigma - i \pi \zeta 2 k \vf \delta(\omega) \right) \\
 	&= 1 + \frac{k_{TF}^2}{k^2} \left( 1 -\frac{\omega}{2 k \vf} L + \frac{\omega}{2 k \vf} i\pi \sigma - i \pi \zeta\omega \delta(\omega) \right) \\
-	&= 1 + \frac{k_{TF}^2}{k^2} \left( 1 -\frac{\omega}{2 k \vf} L + \frac{\omega}{2 k \vf} i \pi\sigma  \right) 
+	&= 1 + \frac{k_{TF}^2}{k^2} \left( 1 -\frac{\omega}{2 k \vf} L + \frac{\omega}{2 k \vf} i \pi\sigma  \right) \\
+	&= 1 + \frac{k_{TF}^2}{k^2} \left( 1 -\frac{\omega}{2 k \vf} L \right) + i  \frac{k_{TF}^2}{k^2} \frac{\omega}{2 k \vf} \pi\sigma \\
+	&= 1 + \frac{k_{TF}^2}{k^2} \left( 1 -\frac{\omega}{2 k \vf} L \right) + i \frac{\pi}{2} \frac{\omega}{ k \vf} \frac{k_{TF}^2}{k^2}  \sigma \label{eq:LindhardExplicitParts:LindhardSimp}
 \end{align}
 
+\subsection{Looking at classical limit of Pines result}
+As Ford and Weber mention, the result we've been looking at should correspond to a classical $\hbar\rightarrow 0$ limit.  In order to verify that we match the Pines result, we can look at this limit. The imaginary part is trivially true, as in this classical limit the middle region of \eqref{eq:LindhardExplicitParts:PinesImaginary} goes away, and we see that the imaginary part of \eqref{eq:LindhardExplicitParts:LindhardSimp} matches, because of the behaviour we encapsulated within $\sigma$.
+
+We can look more closely at \eqref{eq:LindhardExplicitParts:PinesReal} to verify that the real part also matches up:
+\begin{align}
+	\Re[\epsilon_l]	= 1 &+ \frac{k_{TF}^2}{k^2} \Biggl(
+		\frac12 + \frac{k_F}{4k} \biggl[
+			\left( 1 - \frac{\left(\omega - \frac{\hbar k^2}{2m} \right)^2}{k^2\vf^2} \right) \ln\abs{\frac{\omega - k \vf - \frac{\hbar k^2}{2m}}{\omega + k \vf - \frac{\hbar k^2}{2m}}} \nonumber \\
+			&+ \left(1 - \frac{\left(\omega + \frac{\hbar k^2}{2m} \right)^2}{k^2 \vf^2} \right) \ln\abs{\frac{\omega + k\vf + \frac{\hbar k^2}{2m}}{\omega - k \vf + \frac{\hbar k^2}{2m}}}
+		\biggr]
+	 \Biggr)
+\end{align}
+I believe that implicit in this limit will also need to be that $k_F$ will change in this limit as well. We can write this in terms of $\hbar$, as $k_F = \frac{m}{\hbar} \vf$. Thus, we want to find
+\begin{align}
+	\lim_{\hbar \rightarrow 0} 1 &+ \frac{k_{TF}^2}{k^2} \Biggl(
+		\frac12 + \frac{m \vf}{4 \hbar k} \biggl[
+			\left( 1 - \frac{\left(\omega - \frac{\hbar k^2}{2m} \right)^2}{k^2\vf^2} \right) \ln\abs{\frac{\omega - k \vf - \frac{\hbar k^2}{2m}}{\omega + k \vf - \frac{\hbar k^2}{2m}}} \nonumber \\
+			&+ \left(1 - \frac{\left(\omega + \frac{\hbar k^2}{2m} \right)^2}{k^2 \vf^2} \right) \ln\abs{\frac{\omega + k\vf + \frac{\hbar k^2}{2m}}{\omega - k \vf + \frac{\hbar k^2}{2m}}}
+		\biggr]
+	 \Biggr)
+\end{align}
+We can do a series expansion on the entire term in brackets, which (need to verify) should give
+\begin{equation}
+	\frac{4 \frac{k^2}{2m} \left(k \vf - \omega L \right)\hbar}{k^2 \vf^2}
+\end{equation}
+Plugging this in gives us (writing only the terms multiplying in the $\frac{k_{TF}^2}{k^2}$ parentheses):
+\begin{align}
+	&= \frac12 + \frac{m \vf}{4 \hbar k} \frac{4 \frac{k^2}{2m} \left(k \vf - \omega L \right)\hbar}{k^2 \vf^2} \\
+	&= \frac12 + \frac{ \vf}{ \hbar k} \frac{ \frac{k^2}{2} \left(k \vf - \omega L \right)\hbar}{k^2 \vf^2} \\
+	&= \frac12 + \frac{ \vf}{ k} \frac{ \frac{k^2}{2} \left(k \vf - \omega L \right)}{k^2 \vf^2}
+\end{align}
+Our series expansion gives us no terms proportional to $\frac{1}{\hbar}$, and we also fortunately have a term that will survive the $\hbar \rightarrow 0$ limit.
+\begin{align}
+	&= \frac12 + \frac{ \frac{k^2}{2} \left(k \vf - \omega L \right)}{k^3 \vf} \\
+	&= \frac12 + \frac12 \frac{\left(k \vf - \omega L \right)}{k \vf} \\
+	&= \frac12 + \frac12 \left( 1 - \frac{\omega L}{k\vf} \right) \\
+	&= 1 - \frac12 \frac{\omega L}{k \vf}
+\end{align}
+Thus, in this classical limit, \eqref{eq:LindhardExplicitParts:PinesReal} reduces to
+\begin{equation}
+	\Re[\epsilon_l] = 1 + \frac{k_{TF}^2}{k^2} \left(1 - \frac12 \frac{\omega L}{k \vf} \right)
+\end{equation}
+We note that this matches the real part of \eqref{eq:LindhardExplicitParts:LindhardSimp}. This means that our original Lindhard form corresponds to the classical limit of the Pines result.
 \end{document}
