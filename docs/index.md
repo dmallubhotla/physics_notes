@@ -5,3 +5,4 @@ List of PDFs:
 * [Deriving Thomas-Fermi form](DerivingThomasFermi.pdf)
 * [Reducing Lindhard dielectric function](ReducingLindhard.pdf)
 * [Explicit Lindhard real and imaginary parts](LindhardExplicitParts.pdf)
+* [Discussion on qubit relaxation times](QubitRelaxation.pdf)
