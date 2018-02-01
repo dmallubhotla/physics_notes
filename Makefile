@@ -1,4 +1,4 @@
-NOTE_NAMES = DrudeTheory DerivingThomasFermi ReducingLindhard LindhardExplicitParts
+NOTE_NAMES = DrudeTheory DerivingThomasFermi ReducingLindhard LindhardExplicitParts QubitRelaxation
 NOTE_DIRS = $(addprefix notes/, $(addsuffix /, $(NOTE_NAMES)))
 NOTE_PDFS =   $(join $(NOTE_DIRS), $(addsuffix .pdf, $(NOTE_NAMES)))
 NOTE_TEXS = $(NOTE_PDFS:.pdf=.tex)
