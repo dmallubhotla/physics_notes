@@ -5,7 +5,26 @@
 \begin{document}
 
 % !TeX spellcheck = en_GB
-\section{Qubit Relaxation}
+\section{Qubit Relaxation Time}
 
+\subsection{The quasi-static limit}
+We can start by looking at
+\begin{equation}
+	\chi_{zz}^{E}(z, z, \omega) = \frac{\hbar}{\epsilon_0}\Re\int_0^\infty \dd{p} \frac{p^3}{q} e^{2iqz}r_p(p)
+\end{equation}
+Here, we have
+\begin{equation}
+	q = \begin{cases}
+			\sqrt{\frac{\omega^2}{c^2} - p^2}, & p^2 \le  \frac{\omega^2}{c^2} \\
+			i \sqrt{p^2 - \frac{\omega^2}{c^2}}, & p^2 > \frac{\omega^2}{c^2}
+		\end{cases}
+\end{equation}
+If we look at the case where $\omega = \SI{6\pi e8}{\per\second}$, the cutoff for real or imaginary $q$ will be when $p = \SI{2\pi}{\per\meter}$.
+
+If we assume that $r_p$ doesn't decay too quickly, this integral will be dominated by values of $p$ larger than this, which lets us make the substitution that $\frac{\omega}{c} \rightarrow 0$, which means this integral will reduce to
+\begin{align}
+	\chi_{zz}^{E}(z, z, \omega) = \frac{\hbar}{\epsilon_0}\int_0^\infty \dd{p} p^2 e^{-2pz}\Im r_p(p, \omega	)
+\end{align}
+The note that we're effectively taking $c\rightarrow \infty$ is important, as we still shouldn't necessarily assume that we can take $\omega \rightarrow 0$ in $r_p$.
 
 \end{document}
