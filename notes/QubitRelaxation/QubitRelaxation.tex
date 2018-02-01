@@ -27,4 +27,29 @@ If we assume that $\Im r_p$ doesn't decay too quickly, this integral will be dom
 \end{align}
 The note that we're effectively taking $c\rightarrow \infty$ is important, as we still shouldn't necessarily assume that we can take $\omega \rightarrow 0$ in $r_p$.
 
+\subsection{Non-local reflection coefficient}
+We can look specifically at what $r_p$ will be in the non-local case:
+\begin{equation}
+	r_p(p, \omega) = \frac{1 - \frac{2p}{\pi} \int_0^\infty \dd{\kappa} \frac{1}{k^2 \epsilon_l(k \omega)}}{1 + \frac{2p}{\pi} \int_0^\infty \dd{\kappa} \frac{1}{k^2 \epsilon_l(k \omega)}}
+\end{equation}
+where $k^2 = p^2 + \kappa^2$ and
+\begin{equation}
+	\epsilon_l = 1 + \frac{3 \omega_p^2}{k^2 v_F^2} \frac{\left(\omega + i \nu \right) f_l(\flatfrac{(\omega + i \nu)}{k v_f})}{\omega + i \nu f_l(\flatfrac{(\omega + i \nu)}{k v_f})}.
+\end{equation}
+
+All of the interesting behaviour here comes from the integral, which we might name $I = \int_0^\infty \dd{\kappa} \frac{1}{k^2 \epsilon_l(k,m \omega)}$. Knowing that we will eventually need to find $\Im r_p$, we might find utility in also writing $I = I_1 + i I_2$ and noting that
+\begin{align}
+	\Im r_p &= \Im \frac{1 - I}{1 + I} \\
+	&= \Im \frac{1 - I_1 - i I_2}{1 + I_1 + i I_2} \\
+	&= \Im \frac{1 - I_1 - i I_2}{1 + I_1 + i I_2} \frac{I + I_1 - i I_2}{I + I_1 - i I_2} \\
+	&= \Im \frac{(1 - I_1)(1 + I_1) - I_2^2 - i I_2(1 - I_1 + 1 + I_1)}{(1 + I_1)^2 + I_2^2} \\
+	&= \Im \frac{(1 - I_1)(1 + I_1) - I_2^2 - 2 i I_2}{(1 + I_1)^2 + I_2^2} \\
+	&= \frac{- 2 I_2}{(1 + I_1)^2 + I_2^2}.
+\end{align}
+This gives us some idea of how $\Im r_p$ should behave, at least once we can write out the integral $I$.
+
+\begin{align}
+	I &= \int_0^\infty \dd{\kappa} \frac{1}{k^2 \epsilon_l(k, \omega)}
+\end{align}
+
 \end{document}
