@@ -5,6 +5,7 @@
 % !TeX spellcheck = en_GB
 \section{General discussion of dielectric function}
 
+\subsection{Fourier transform of dielectric components}
 We can start by looking at some basic relationships between $\vec{D}$, $\vec{E}$. In SI units, and writing $\epsilon$ instead of $\epsilon_r$ to avoid unnecessary subscripts,
 \begin{equation}
 	\vec{D}_\alpha(r) = \int \dd[d]{r'} \epsilon_{\alpha\beta}(r, r') \epsilon_0 \vec{E}_\beta(r').
@@ -14,26 +15,70 @@ We can start by making the large assumption that the system is isotropic, and th
 
 \begin{align}
 	\vec{D}_\alpha(r) &= \int \dd[d]{r'} \epsilon_{\alpha\beta}(r - r') \epsilon_0 \vec{E}_\beta(r')\\
-	&= \int \dd[d]{r'} \epsilon_{\alpha\beta}(r - r') \epsilon_0 \vec{E}_\beta(r') e^{i q r'} e^{-i q r'}\\
-	&= \int \dd[d]{r'} \epsilon_{\alpha\beta}(r - r') \epsilon_0 \vec{E}_\beta(r') e^{i q r'} e^{-i q r'} \\
-	&= \int \dd[d]{r'} \epsilon_{\alpha\beta}(r - r') e^{i q r'} \epsilon_0 \vec{E}_\beta(r')  e^{-i q r'} \\
-	\vec{D}_\alpha(r) e^{-i q r} &= \int \dd[d]{r'} \epsilon_{\alpha\beta}(r - r') e^{i q r'}  e^{-i q r} \epsilon_0 \vec{E}_\beta(r')  e^{-i q r'} \\
-	\vec{D}_\alpha(r) e^{-i q r} &= \int \dd[d]{r'} \epsilon_{\alpha\beta}(r - r') e^{-iq(r - r')} \epsilon_0 \vec{E}_\beta(r')  e^{-i q r'}
+	&= \int \dd[d]{r'} \epsilon_{\alpha\beta}(r - r') \epsilon_0 \vec{E}_\beta(r') e^{i k r'} e^{-i k r'}\\
+	&= \int \dd[d]{r'} \epsilon_{\alpha\beta}(r - r') \epsilon_0 \vec{E}_\beta(r') e^{i k r'} e^{-i k r'} \\
+	&= \int \dd[d]{r'} \epsilon_{\alpha\beta}(r - r') e^{i k r'} \epsilon_0 \vec{E}_\beta(r')  e^{-i k r'} \\
+	\vec{D}_\alpha(r) e^{-i k r} &= \int \dd[d]{r'} \epsilon_{\alpha\beta}(r - r') e^{i k r'}  e^{-i k r} \epsilon_0 \vec{E}_\beta(r')  e^{-i k r'} \\
+	\vec{D}_\alpha(r) e^{-i k r} &= \int \dd[d]{r'} \epsilon_{\alpha\beta}(r - r') e^{-ik(r - r')} \epsilon_0 \vec{E}_\beta(r')  e^{-i k r'}
 \end{align}
 If we integrate this over $r$, and recognise our Fourier transforms, this becomes
 \begin{equation}
-	D_\alpha(q) = \epsilon_{\alpha \beta}(q) E_\beta(q)
+	D_\alpha(k) = \epsilon_{\alpha \beta}(k) \epsilon_0 E_\beta(k) \label{eq:DerivingThomasFermi:epsilonDef}
 \end{equation}
-This is a fair result for the assumption of isotropy. We have an implicit sum over $\beta$ here to look at.
+This is a fair result for the assumption of isotropy. We have an implicit sum over $\beta$ here to look at. This serves as a useful working definition of $\epsilon(k)$.
 
-Skipping over some details to fill in later, we end up with
+One more assumption proves useful: for a given $\vec{k}$, we can look at the components of $\vec{E}$ and $\vec{D}$ parallel (longitudinal) and perpendicular (transverse) to $\vec{k}$. We may assume \todo{why can we assume this?} that only the parallel component of $\vec{E}$ affects the parallel component of $\vec{D}$, and same for the perpendicular components. Specifically, this leads to\todo{include brief derivation of dielectric components} 
+\begin{align}
+	\epsilon_{\alpha \beta}(\vec{k}) = \epsilon_{\parallel}(\vec{k}) \hat{k}_\alpha \hat{k}_\beta + \epsilon_{\perp}(\vec{k}) (\delta_{\alpha \beta} - \hat{k}_\alpha \hat{k}_\beta).
+\end{align}
+A moment's reflection shows that this leads to two independent components of $\epsilon_{\alpha \beta}(\vec{k})$ (as can be seen by assuming $\vec{k}$ points in the $x$ direction). Also note that that for the transverse case, this explicitly only couples $y$ to $y$ and $z$ to $z$; there are no couplings between $y$ and $z$.
+
+\subsection{Electron gas densities and longitudinal eqs}
+To begin looking at an actual electron gas, with some external charge density $\rho_{ext}$ imposed on it, we can start with Gauss's law:
 \begin{equation}
-	\frac{1}{\epsilon_r(q, \omega)} = 1 + \frac{4\pi e^2}{q^2} \Pi(q, \omega),
+	\div\vec{D(r)} = \rho_{ext}(r)
 \end{equation}
-where $\Pi(q, \omega)$ is a response function satisfying
+This external charge density induces a charge density in the gas:
 \begin{equation}
-	n_{ind}(q, \omega) = \Pi(q, \omega) V_f(q, \omega)
+	\rho(r) = \rho_{ind}(r) + \rho_{ext}(r)
 \end{equation}
-Here $n_ind$ is the number density of induced electrons, and $V_f$ is the voltage created by any free electrons in the metal (which isn't quite the same as an external voltage, but I think you might be able to ignore that difference).
+We can define some scalar potentials $\Phi$ and $\Phi_{ext}$, and therewith write
+\begin{align}
+	\vec{E}(r) &= - \vec{\grad} \Phi(r) \\
+	\vec{D}(r) &= - \epsilon_0 \vec{\grad} \Phi_{ext}(r)
+\end{align}
+Going Fourier with it leads to 
+\begin{align}
+	\vec{E}(k) &= - i \vec{k} \Phi(k) \\
+	\vec{D}(k) &= - i \epsilon_0 \vec{k} \Phi_{ext}(k)
+\end{align}
+These are the components of $\vec{E}$ and $\vec{D}$ parallel to $\vec{k}$, which means that these are really the \emph{longitudinal} components. 
+
+Relating Gauss's laws to the scalar components, we get 
+\begin{align}
+	\rho_{ext}(\vec{k}) &= \div{\vec{D}(\vec{k})} \\
+	&= \div(- i \epsilon_0 \vec{k} \Phi_{ext}(\vec{k})) \\
+	\rho_{ext}(\vec{k}) &= \epsilon_0 k^2 \Phi_{ext}(\vec{k})
+\end{align}
+Similarly, for $\vec{E}$ and $\rho$, we get 
+\begin{align}
+	\rho(\vec{k}) &= \epsilon_0 k^2 \Phi(\vec{k}).
+\end{align}
+Because of \eqref{eq:DerivingThomasFermi:epsilonDef}, we should be able to write 
+\begin{equation}
+	\Phi_{ext}(\vec{k}) = \epsilon_{\parallel}(\vec{k}) \Phi(\vec{k})
+\end{equation}
+
+Skipping over some details to fill in later (which involve defining potential energies $V = -e \Phi$ and using number densities defined by $\rho = -e n$\todo{Fill in these details}, we end up with
+\begin{equation}
+	\frac{1}{\epsilon_{\parallel}(k, \omega)} = 1 + \frac{4\pi e^2}{k^2} \Pi(k, \omega),
+\end{equation}
+where $\Pi(k, \omega)$ is a response function satisfying
+\begin{equation}
+	n_{ind}(k, \omega) = \Pi(k, \omega) V_f(k, \omega)
+\end{equation}
+Here $n_{ind}$ is the number density of induced electrons, and $V_f$ is the voltage created by any free electrons in the metal (which isn't quite the same as an external voltage, but I think you might be able to ignore that difference).
+
+There's no reason for $\Pi(\vec{k}, \omega)$ to be simple. In general, it describes the complete induced density reponse to any external potential.
 
 \end{document}
