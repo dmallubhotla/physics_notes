@@ -10,7 +10,7 @@ NOTE_DEPEND = $(NOTE_TEXS)
 
 LATEXMK = latexmk -use-make -pdf -dvi- -ps-
 
-all: publish
+all: main
 
 main: main.pdf $(NOTE_PDFS)
 
