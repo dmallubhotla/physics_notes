@@ -1,7 +1,5 @@
 *.aux
 /*.pdf
-# These are a compiled asset, but as part of the published docs folder, we use them, so I'd like to keep them, I guess?
-# /notes/**/*.pdf
 *.log
 *.fdb_latexmk
 *.fls
