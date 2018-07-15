@@ -102,12 +102,12 @@ It's possible also to show that the transverse Lindhard dielectric function ends
 
 Writing out $\epsilon_t$:
 \begin{equation} 
-	e_t = 1 - \frac{\omega_p^2}{\omega \eta} \left[\frac32 \frac{\eta^2}{\vf^2 k^2} - \frac34 \frac{\eta}{\vf k} \left(\frac{\eta^2}{\vf^2 k^2} - 1 \right)\ln\frac{\eta + \vf k}{\eta - \vf k} \right]
+	\epsilon_t = 1 - \frac{\omega_p^2}{\omega \eta} \left[\frac32 \frac{\eta^2}{\vf^2 k^2} - \frac34 \frac{\eta}{\vf k} \left(\frac{\eta^2}{\vf^2 k^2} - 1 \right)\ln\frac{\eta + \vf k}{\eta - \vf k} \right]
 \end{equation}
 
 We can also simplify this slightly, to highlight the similarities between this and the longitudinal forms:
 \begin{align}
-	e_t &= 1 - \frac{3 \omega_p^2}{2\omega \eta} \left[ \frac{\eta^2}{\vf^2 k^2} - \frac12 \frac{\eta}{\vf k} \left(\frac{\eta^2}{\vf^2 k^2} - 1 \right)\ln\frac{\eta + \vf k}{\eta - \vf k} \right] \\
+	\epsilon_t &= 1 - \frac{3 \omega_p^2}{2\omega \eta} \left[ \frac{\eta^2}{\vf^2 k^2} - \frac12 \frac{\eta}{\vf k} \left(\frac{\eta^2}{\vf^2 k^2} - 1 \right)\ln\frac{\eta + \vf k}{\eta - \vf k} \right] \\
 	&= 1 - \frac{3 \omega_p^2}{2\omega \eta} \left[ \frac{\eta^2}{\vf^2 k^2} - \frac12 \frac{\eta^2}{\vf^2 k^2} \left(\frac{\eta}{\vf k} - \frac{\vf k}{\eta} \right)\ln\frac{\eta + \vf k}{\eta - \vf k} \right] \\
 	&= 1 - \frac{3 \omega_p^2}{2\omega \eta} \frac{\eta^2}{\vf^2 k^2} \left[ 1 - \frac12 \left(\frac{\eta}{\vf k} - \frac{\vf k}{\eta} \right)\ln\frac{\eta + \vf k}{\eta - \vf k} \right] \\
 	&= 1 - \frac{3 \omega_p^2 \eta}{2\omega \vf^2 k^2} \left[ 1 - \frac12 \left(\frac{\eta}{\vf k} - \frac{\vf k}{\eta} \right)\ln\frac{\eta + \vf k}{\eta - \vf k} \right]\label{eq:ReducingLindhard:et}
@@ -138,7 +138,7 @@ Adding this to \eqref{eq:ReducingLindhard:Simplerft}, we end up with
 
 Plugging this into \eqref{eq:ReducingLindhard:et} gives us
 \begin{align}
-	e_t &= 1 - \frac{3 \omega_p^2 \eta}{2\omega \vf^2 k^2} \left[ 1 - \frac12 \left(\frac{\eta}{\vf k} - \frac{\vf k}{\eta} \right)\ln\frac{\eta + \vf k}{\eta - \vf k} \right] \\
+	\epsilon_t &= 1 - \frac{3 \omega_p^2 \eta}{2\omega \vf^2 k^2} \left[ 1 - \frac12 \left(\frac{\eta}{\vf k} - \frac{\vf k}{\eta} \right)\ln\frac{\eta + \vf k}{\eta - \vf k} \right] \\
 	&= 1 - \frac{3 \omega_p^2 \eta}{2\omega \vf^2 k^2} \frac23 \frac{k^2 \vf^2}{\eta^2} \\
 	&= 1 - \frac{\omega_p^2}{\omega \eta}\\
 	&= 1 - \frac{\omega_p^2}{\omega \left(\omega + i \nu \right) }
