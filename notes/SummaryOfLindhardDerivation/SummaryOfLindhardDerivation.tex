@@ -2,16 +2,24 @@
 
 \begin{document}
 
+\newcommand{\frk}{k}
+\newcommand{\frargs}{(\vec{\frk}, \omega)}
+
 % !TeX spellcheck = en_GB
 \section{Summary of Lindhard's derivation}
 
 For Lindhard's derivation, we can start with two variations on the Maxwell's equations:
 \begin{equation}
-	\left(k^2 - \frac{\omega^2}{c^2} \epsilon^{tr}(\vec{k}, \omega) \right) \vec{A}^{tr}(\vec{k}, \omega) = \frac{4\pi}{c} \vec{j}^{tr}_{f}(\vec{k}, \omega),
+	\left(\frk^2 - \frac{\omega^2}{c^2} \epsilon^{tr}\frargs\right) \vec{A}^{tr}\frargs = \frac{4\pi}{c} \vec{j}^{tr}_{f}\frargs,
 \end{equation}
 \begin{equation}
-	\epsilon^{lo}(\vec{k}, \omega) k^2 V(\vec{k}, \omega) = 4 \pi \rho_f(\vec{k}, \omega).
+	\epsilon^{lo}\frargs \frk^2 V\frargs = 4 \pi \rho_f\frargs.
 \end{equation}
-Here, $\rho_f$ and $j_f$ are the free charge density and current. The longitudinal and transverse dielectric functions, $\epsilon^{lo}$ and $\epsilon^{tr}$, contain the same information as the traditional $\epsilon$ and $\mu$.
+Here, $\rho_f$ and $j_f$ are the free charge density and current. The longitudinal and transverse dielectric functions, $\epsilon^{lo}$ and $\epsilon^{tr}$, contain the same information as the traditional $\epsilon$ and $\mu$, and are related by
+\begin{gather}
+	\epsilon\frargs = \epsilon^{lo}\frargs \\
+	\frk^2 \left(1 - \frac{1}{\mu\frargs}\right) = \frac{\omega^2}{c^2} \left(\epsilon^{tr}\frargs - \epsilon^{lo}\frargs\right)
+\end{gather}
+
 
 \end{document}
