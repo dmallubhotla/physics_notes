@@ -4,10 +4,12 @@
 
 \begin{document}
 
+\section{Nam form of conductivity} \label{sec:NamForm}
+
 % !TeX spellcheck = en_GB
 Starting with the form in the Nam paper, we have for the conductivity $\sigma$:
 \begin{equation}
-\sigma(q, \omega) = -i \frac34\frac{ n e^2}{ m} \frac{1}{\omega}\left[\int_{\Delta - \omega}^{\Delta}\dd{\omega'} \tanh(\frac{\omega + \omega'}{2T}) I_1 + \int_{\Delta}^{\infty} \dd{\omega'} \left( \tanh(\frac{\omega + \omega'}{2T}) I_1  + \tanh(\frac{\omega'}{2T})I_2 \right) \right]
+\sigma(q, \omega) = -i \frac34\frac{ n e^2}{ m} \frac{1}{\omega}\left[\int_{\Delta - \omega}^{\Delta}\dd{\omega'} \tanh(\frac{\omega + \omega'}{2T}) I_1 + \int_{\Delta}^{\infty} \dd{\omega'} \left( \tanh(\frac{\omega + \omega'}{2T}) I_1  - \tanh(\frac{\omega'}{2T})I_2 \right) \right]
 \end{equation}
 with 
 \begin{align}
@@ -15,12 +17,12 @@ I_1 &= F(q, \sqrt{(\omega + \omega')^2 - \Delta^2} - \sqrt{\omega'^2 - \Delta^2}
 &\quad + F(q, -\sqrt{(\omega + \omega')^2 - \Delta^2} - \sqrt{\omega'^2 - \Delta^2}) (g - 1) \\
 I_2 &= F(q, \sqrt{(\omega + \omega')^2 - \Delta^2} - \sqrt{\omega'^2 - \Delta^2}) (g + 1) \nonumber\\
 &\quad + F(q, \sqrt{(\omega + \omega')^2 - \Delta^2} + \sqrt{\omega'^2 - \Delta^2}) (g - 1) \\	
-F(q, E) &= \frac{1}{q v_0} \left[S(E) + (1 - S(E)^2)\ln(\frac{S(E) + 1}{S(E) - 1})\right]  \\
+F(q, E) &= \frac{1}{q v_0} \left[2S(E) + (1 - S(E)^2)\ln(\frac{S(E) + 1}{S(E) - 1})\right]  \\
 S(E) &= \frac{1}{q v_0} \left(E - \frac{i}{\tau} \right) \\
-g  &= \frac{\omega' \left( \omega + \omega'\right)}{\sqrt{\omega'^2 - \Delta^2}\sqrt{(\omega + \omega')^2 - \Delta^2}}
+g  &= \frac{\omega' \left( \omega + \omega'\right) + \Delta^2}{\sqrt{\omega'^2 - \Delta^2}\sqrt{(\omega + \omega')^2 - \Delta^2}}
 \end{align}
 
-\subsection{Removing units}
+\subsection{Removing units} \label{subsec:NamForm.Dimensionless}
 
 To remove units, we'll want to represent all the various quantities in terms of $\Delta$:
 \begin{align}
@@ -34,7 +36,7 @@ t &= \frac{T}{\Delta} \\
 
 This gives us 
 \begin{equation}
-\sigma(\kappa, \xi) = -i \frac{3 \sigma_0}{4} \frac{1}{\xi}\left[\int_{1 - \xi}^{1}\dd{\xi} \tanh(\frac{\xi + \xi'}{2 t}) I_1 + \int_{1}^{\infty} \dd{\xi'} \left( \tanh(\frac{\xi + \xi'}{2t}) I_1  + \tanh(\frac{\xi'}{2t})I_2 \right) \right]
+\sigma(\kappa, \xi) = -i \frac{3 \sigma_0}{4} \frac{1}{\xi}\left[\int_{1 - \xi}^{1}\dd{\xi} \tanh(\frac{\xi + \xi'}{2 t}) I_1 + \int_{1}^{\infty} \dd{\xi'} \left( \tanh(\frac{\xi + \xi'}{2t}) I_1  - \tanh(\frac{\xi'}{2t})I_2 \right) \right]
 \end{equation}
 with 
 \begin{align}
@@ -42,14 +44,14 @@ I_1 &= F(\kappa, \sqrt{(\xi + \xi')^2 - 1} - \sqrt{\xi'^2 - 1}) (g + 1) \nonumbe
 &\quad + F(\kappa, -\sqrt{(\xi + \xi')^2 - 1} - \sqrt{\xi'^2 - 1}) (g - 1) \\
 I_2 &= F(\kappa, \sqrt{(\xi + \xi')^2 - 1} - \sqrt{\xi'^2 - 1}) (g + 1) \nonumber\\
 &\quad + F(\kappa, \sqrt{(\xi + \xi')^2 - 1} + \sqrt{\xi'^2 - 1}) (g - 1) \\	
-F(\kappa, E) &= \frac{1}{\kappa} \left[S(E) + (1 - S(E)^2)\ln(\frac{S(E) + 1}{S(E) - 1})\right]  \\
+F(\kappa, E) &= \frac{1}{\kappa} \left[2 S(E) + (1 - S(E)^2)\ln(\frac{S(E) + 1}{S(E) - 1})\right]  \\
 S(\kappa, E) &= \frac{1}{\kappa} \left(E - i \nu \right) \\
-g  &= \frac{\xi' \left( \xi + \xi'\right)}{\sqrt{\xi'^2 - 1}\sqrt{(\xi + \xi')^2 - 1}}
+g  &= \frac{\xi' \left( \xi + \xi'\right) + 1}{\sqrt{\xi'^2 - 1}\sqrt{(\xi + \xi')^2 - 1}}
 \end{align}
 
 For future reference, $F$ carried units, which when included out a $\Delta$ in the integrals.
 
-\subsection{Comparing to normal conductivity}
+\subsection{Comparing to normal conductivity} \label{subsec:NamForm.NormalConductivity}
 We can also compare this to the normal conductivity: $\sigma_N = \frac{n e^2 \tau}{m}$:
 \begin{align}
 \sigma_N &= \frac{n e^2 \tau}{m} \\
