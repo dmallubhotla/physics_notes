@@ -6,3 +6,4 @@ List of PDFs:
 * [Reducing Lindhard dielectric function](ReducingLindhard.pdf)
 * [Explicit Lindhard real and imaginary parts](LindhardExplicitParts.pdf)
 * [Discussion on qubit relaxation times](QubitRelaxation.pdf)
+* [Nam's discussion on electromagnetic response of superconductors](NamSCResponse.pdf)
