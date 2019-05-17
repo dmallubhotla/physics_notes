@@ -13,12 +13,12 @@ Starting with the form in the Nam paper, we have for the conductivity $\sigma$:
 \end{equation}
 with 
 \begin{align}
-I_1 &= F(q, \sqrt{(\omega + \omega')^2 - \Delta^2} - \sqrt{\omega'^2 - \Delta^2}) (g + 1) \nonumber\\
-&\quad + F(q, -\sqrt{(\omega + \omega')^2 - \Delta^2} - \sqrt{\omega'^2 - \Delta^2}) (g - 1) \\
-I_2 &= F(q, \sqrt{(\omega + \omega')^2 - \Delta^2} - \sqrt{\omega'^2 - \Delta^2}) (g + 1) \nonumber\\
-&\quad + F(q, \sqrt{(\omega + \omega')^2 - \Delta^2} + \sqrt{\omega'^2 - \Delta^2}) (g - 1) \\	
+I_1 &= F(q, \Re[\sqrt{(\omega + \omega')^2 - \Delta^2} - \sqrt{\omega'^2 - \Delta^2}]) (g + 1) \nonumber\\
+&\quad + F(q, \Re[-\sqrt{(\omega + \omega')^2 - \Delta^2} - \sqrt{\omega'^2 - \Delta^2}]) (g - 1) \\
+I_2 &= F(q, \Re[\sqrt{(\omega + \omega')^2 - \Delta^2} - \sqrt{\omega'^2 - \Delta^2}]) (g + 1) \nonumber\\
+&\quad + F(q, \Re[\sqrt{(\omega + \omega')^2 - \Delta^2} + \sqrt{\omega'^2 - \Delta^2}]) (g - 1) \\
 F(q, E) &= \frac{1}{q v_0} \left[2S(E) + (1 - S(E)^2)\ln(\frac{S(E) + 1}{S(E) - 1})\right]  \\
-S(E) &= \frac{1}{q v_0} \left(E - \frac{i}{\tau} \right) \\
+S(E) &= \frac{1}{q v_0} \left(E - i \left( \Im[\sqrt{(\omega + \omega')^2 - \Delta^2} +\sqrt{\omega'^2 - \Delta^2}] + \frac{2}{\tau} \right) \right) \\
 g  &= \frac{\omega' \left( \omega + \omega'\right) + \Delta^2}{\sqrt{\omega'^2 - \Delta^2}\sqrt{(\omega + \omega')^2 - \Delta^2}}
 \end{align}
 
@@ -40,12 +40,12 @@ This gives us
 \end{equation}
 with 
 \begin{align}
-I_1 &= F(\kappa, \sqrt{(\xi + \xi')^2 - 1} - \sqrt{\xi'^2 - 1}) (g + 1) \nonumber\\
-&\quad + F(\kappa, -\sqrt{(\xi + \xi')^2 - 1} - \sqrt{\xi'^2 - 1}) (g - 1) \\
-I_2 &= F(\kappa, \sqrt{(\xi + \xi')^2 - 1} - \sqrt{\xi'^2 - 1}) (g + 1) \nonumber\\
-&\quad + F(\kappa, \sqrt{(\xi + \xi')^2 - 1} + \sqrt{\xi'^2 - 1}) (g - 1) \\	
+I_1 &= F(\kappa, \Re[\sqrt{(\xi + \xi')^2 - 1} - \sqrt{\xi'^2 - 1}]) (g + 1) \nonumber\\
+&\quad + F(\kappa, \Re[-\sqrt{(\xi + \xi')^2 - 1} - \sqrt{\xi'^2 - 1}]) (g - 1) \\
+I_2 &= F(\kappa, \Re[\sqrt{(\xi + \xi')^2 - 1} - \sqrt{\xi'^2 - 1}]) (g + 1) \nonumber\\
+&\quad + F(\kappa, \Re[\sqrt{(\xi + \xi')^2 - 1} + \sqrt{\xi'^2 - 1}]) (g - 1) \\
 F(\kappa, E) &= \frac{1}{\kappa} \left[2 S(E) + (1 - S(E)^2)\ln(\frac{S(E) + 1}{S(E) - 1})\right]  \\
-S(\kappa, E) &= \frac{1}{\kappa} \left(E - i \nu \right) \\
+S(\kappa, E) &= \frac{1}{\kappa} \left(E - i \left(\Im[\sqrt{(\xi + \xi')^2 - 1} + \sqrt{\xi'^2 - 1}] + 2 \nu \right) \right) \\
 g  &= \frac{\xi' \left( \xi + \xi'\right) + 1}{\sqrt{\xi'^2 - 1}\sqrt{(\xi + \xi')^2 - 1}}
 \end{align}
 
