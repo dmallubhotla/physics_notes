@@ -61,8 +61,32 @@ We can also compare this to the normal conductivity: $\sigma_N = \frac{n e^2 \ta
 
 This, we can find the ratio $\Sigma = \frac{\sigma}{\sigma_N} = \frac{\sigma \nu}{\sigma_0}$,
 \begin{equation}
-\Sigma(\kappa, \xi) = -i \frac{3}{4} \frac{\nu}{\xi}\left[\int_{1 - \xi}^{1}\dd{\xi} \tanh(\frac{\xi + \xi'}{2 t}) I_1 + \int_{1}^{\infty} \dd{\xi'} \left( \tanh(\frac{\xi + \xi'}{2t}) I_1  + \tanh(\frac{\xi'}{2t})I_2 \right) \right]
+\Sigma(\kappa, \xi) = -i \frac{3}{4} \frac{\nu}{\xi}\left[\int_{1 - \xi}^{1}\dd{\xi} \tanh(\frac{\xi + \xi'}{2 t}) I_1 + \int_{1}^{\infty} \dd{\xi'} \left( \tanh(\frac{\xi + \xi'}{2t}) I_1  - \tanh(\frac{\xi'}{2t})I_2 \right) \right]
 \end{equation}
+
+\subsection{Verifying small $\kappa$ dependence} \label{subsec:NamForm.SmallK}
+We should expect that the conductivity reaches a finite value as $\kappa \rightarrow 0$. To verify this, we'll want to actually take that limit. All of the dependence on momentum comes in through the function $F$ and $S$, so we can begin by writing $S$ as $S = \frac{\eta}{\kappa}$, which means that
+\begin{align}
+	F &= \frac{1}{\kappa} \left[2 S(E) + (1 - S(E)^2)\ln(\frac{S(E) + 1}{S(E) - 1})\right] \\
+	F &= \frac{1}{\kappa} \left[2 \frac{\eta}{\kappa} + (1 - \frac{\eta^2}{\kappa^2})\ln(\frac{\frac{\eta}{\kappa} + 1}{\frac{\eta}{\kappa} - 1})\right] \label{eq:NamForm:FPreLnExpand}
+\end{align}
+
+We can then expand out the log term:
+\begin{align}
+	\ln(\frac{\frac{\eta}{\kappa} + 1}{\frac{\eta}{\kappa} - 1}) &= \ln(\frac{\eta + \kappa}{\eta - \kappa}) \\
+	&= 2 \frac{\kappa}{\eta} + \frac23 \left(\frac{\kappa}{\eta}\right)^3 + \frac25 \left(\frac{\kappa}{\eta}\right)^5 + \mathcal{O}\left(\left(\frac{\kappa}{\eta}\right)^7\right)
+\end{align}
+
+Plugging the first two terms into \eqref{eq:NamForm:FPreLnExpand} gives us
+\begin{align}
+	F &= \frac{1}{\kappa} \left[2 \frac{\eta}{\kappa} + (1 - \frac{\eta^2}{\kappa^2})\ln(\frac{\frac{\eta}{\kappa} + 1}{\frac{\eta}{\kappa} - 1})\right] \\
+	&= \frac{1}{\kappa} \left[2 \frac{\eta}{\kappa} + (1 - \frac{\eta^2}{\kappa^2})\left(2 \frac{\kappa}{\eta} + \frac23 \left(\frac{\kappa}{\eta}\right)^3\right)\right] \\
+	&= \frac{1}{\kappa} \left[2 \frac{\eta}{\kappa} + 2\frac{\kappa}{\eta} - 2 \frac{\eta}{\kappa} + \frac23 \frac{\kappa^3}{\eta^3} - \frac23 \frac{\kappa}{\eta}\right] \\
+	&= \frac{1}{\kappa} \left[\frac43\frac{\kappa}{\eta}\right] \\
+	&= \frac43 \frac{1}{\eta}
+\end{align}
+Here we dropped the second leading term in $\kappa^3$ before simplifying, to find that $F$ does indeed approximate a constant value depending on $F$.
+
 
 
 \end{document}
