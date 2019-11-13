@@ -1,0 +1,92 @@
+\documentclass[../../main.tex]{subfiles}
+\newcommand{\vf}{v_F}
+\allowdisplaybreaks
+
+\begin{document}
+
+\section{Nam form of conductivity} \label{sec:NamForm}
+
+% !TeX spellcheck = en_GB
+Starting with the form in the Nam paper, we have for the conductivity $\sigma$:
+\begin{equation}
+\sigma(q, \omega) = -i \frac34\frac{ n e^2}{ m} \frac{1}{\omega}\left[\int_{\Delta - \omega}^{\Delta}\dd{\omega'} \tanh(\frac{\omega + \omega'}{2T}) I_1 + \int_{\Delta}^{\infty} \dd{\omega'} \left( \tanh(\frac{\omega + \omega'}{2T}) I_1  - \tanh(\frac{\omega'}{2T})I_2 \right) \right]
+\end{equation}
+with 
+\begin{align}
+I_1 &= F(q, \Re[\sqrt{(\omega + \omega')^2 - \Delta^2} - \sqrt{\omega'^2 - \Delta^2}]) (g + 1) \nonumber\\
+&\quad + F(q, \Re[-\sqrt{(\omega + \omega')^2 - \Delta^2} - \sqrt{\omega'^2 - \Delta^2}]) (g - 1) \\
+I_2 &= F(q, \Re[\sqrt{(\omega + \omega')^2 - \Delta^2} - \sqrt{\omega'^2 - \Delta^2}]) (g + 1) \nonumber\\
+&\quad + F(q, \Re[\sqrt{(\omega + \omega')^2 - \Delta^2} + \sqrt{\omega'^2 - \Delta^2}]) (g - 1) \\
+F(q, E) &= \frac{1}{q v_0} \left[2S(E) + (1 - S(E)^2)\ln(\frac{S(E) + 1}{S(E) - 1})\right]  \\
+S(E) &= \frac{1}{q v_0} \left(E - i \left( \Im[\sqrt{(\omega + \omega')^2 - \Delta^2} +\sqrt{\omega'^2 - \Delta^2}] + \frac{2}{\tau} \right) \right) \\
+g  &= \frac{\omega' \left( \omega + \omega'\right) + \Delta^2}{\sqrt{\omega'^2 - \Delta^2}\sqrt{(\omega + \omega')^2 - \Delta^2}}
+\end{align}
+
+\subsection{Removing units} \label{subsec:NamForm.Dimensionless}
+
+To remove units, we'll want to represent all the various quantities in terms of $\Delta$:
+\begin{align}
+\xi &= \frac{\omega}{\Delta} \\
+\xi' &= \frac{\omega'}{\Delta} \\
+\nu &= \frac{1}{\tau \Delta} \\
+\kappa &= \frac{q v_0}{\Delta} \\
+t &= \frac{T}{\Delta} \\
+\sigma_0 &= \frac{n e^2}{m \Delta}
+\end{align}
+
+This gives us 
+\begin{equation}
+\sigma(\kappa, \xi) = -i \frac{3 \sigma_0}{4} \frac{1}{\xi}\left[\int_{1 - \xi}^{1}\dd{\xi} \tanh(\frac{\xi + \xi'}{2 t}) I_1 + \int_{1}^{\infty} \dd{\xi'} \left( \tanh(\frac{\xi + \xi'}{2t}) I_1  - \tanh(\frac{\xi'}{2t})I_2 \right) \right]
+\end{equation}
+with 
+\begin{align}
+I_1 &= F(\kappa, \Re[\sqrt{(\xi + \xi')^2 - 1} - \sqrt{\xi'^2 - 1}]) (g + 1) \nonumber\\
+&\quad + F(\kappa, \Re[-\sqrt{(\xi + \xi')^2 - 1} - \sqrt{\xi'^2 - 1}]) (g - 1) \\
+I_2 &= F(\kappa, \Re[\sqrt{(\xi + \xi')^2 - 1} - \sqrt{\xi'^2 - 1}]) (g + 1) \nonumber\\
+&\quad + F(\kappa, \Re[\sqrt{(\xi + \xi')^2 - 1} + \sqrt{\xi'^2 - 1}]) (g - 1) \\
+F(\kappa, E) &= \frac{1}{\kappa} \left[2 S(E) + (1 - S(E)^2)\ln(\frac{S(E) + 1}{S(E) - 1})\right]  \\
+S(\kappa, E) &= \frac{1}{\kappa} \left(E - i \left(\Im[\sqrt{(\xi + \xi')^2 - 1} + \sqrt{\xi'^2 - 1}] + 2 \nu \right) \right) \\
+g  &= \frac{\xi' \left( \xi + \xi'\right) + 1}{\sqrt{\xi'^2 - 1}\sqrt{(\xi + \xi')^2 - 1}}
+\end{align}
+
+For future reference, $F$ carried units, which when included out a $\Delta$ in the integrals.
+
+\subsection{Comparing to normal conductivity} \label{subsec:NamForm.NormalConductivity}
+We can also compare this to the normal conductivity: $\sigma_N = \frac{n e^2 \tau}{m}$:
+\begin{align}
+\sigma_N &= \frac{n e^2 \tau}{m} \\
+&= \frac{n e^2}{m \Delta} \tau \Delta \\
+&= \sigma_0 \frac{1}{\nu}
+\end{align}
+
+This, we can find the ratio $\Sigma = \frac{\sigma}{\sigma_N} = \frac{\sigma \nu}{\sigma_0}$,
+\begin{equation}
+\Sigma(\kappa, \xi) = -i \frac{3}{4} \frac{\nu}{\xi}\left[\int_{1 - \xi}^{1}\dd{\xi} \tanh(\frac{\xi + \xi'}{2 t}) I_1 + \int_{1}^{\infty} \dd{\xi'} \left( \tanh(\frac{\xi + \xi'}{2t}) I_1  - \tanh(\frac{\xi'}{2t})I_2 \right) \right]
+\end{equation}
+
+\subsection{Verifying small $\kappa$ dependence} \label{subsec:NamForm.SmallK}
+We should expect that the conductivity reaches a finite value as $\kappa \rightarrow 0$. To verify this, we'll want to actually take that limit. All of the dependence on momentum comes in through the function $F$ and $S$, so we can begin by writing $S$ as $S = \frac{\eta}{\kappa}$, which means that
+\begin{align}
+	F &= \frac{1}{\kappa} \left[2 S(E) + (1 - S(E)^2)\ln(\frac{S(E) + 1}{S(E) - 1})\right] \\
+	F &= \frac{1}{\kappa} \left[2 \frac{\eta}{\kappa} + (1 - \frac{\eta^2}{\kappa^2})\ln(\frac{\frac{\eta}{\kappa} + 1}{\frac{\eta}{\kappa} - 1})\right] \label{eq:NamForm:FPreLnExpand}
+\end{align}
+
+We can then expand out the log term:
+\begin{align}
+	\ln(\frac{\frac{\eta}{\kappa} + 1}{\frac{\eta}{\kappa} - 1}) &= \ln(\frac{\eta + \kappa}{\eta - \kappa}) \\
+	&= 2 \frac{\kappa}{\eta} + \frac23 \left(\frac{\kappa}{\eta}\right)^3 + \frac25 \left(\frac{\kappa}{\eta}\right)^5 + \mathcal{O}\left(\left(\frac{\kappa}{\eta}\right)^7\right)
+\end{align}
+
+Plugging the first two terms into \eqref{eq:NamForm:FPreLnExpand} gives us
+\begin{align}
+	F &= \frac{1}{\kappa} \left[2 \frac{\eta}{\kappa} + (1 - \frac{\eta^2}{\kappa^2})\ln(\frac{\frac{\eta}{\kappa} + 1}{\frac{\eta}{\kappa} - 1})\right] \\
+	&= \frac{1}{\kappa} \left[2 \frac{\eta}{\kappa} + (1 - \frac{\eta^2}{\kappa^2})\left(2 \frac{\kappa}{\eta} + \frac23 \left(\frac{\kappa}{\eta}\right)^3\right)\right] \\
+	&= \frac{1}{\kappa} \left[2 \frac{\eta}{\kappa} + 2\frac{\kappa}{\eta} - 2 \frac{\eta}{\kappa} + \frac23 \frac{\kappa^3}{\eta^3} - \frac23 \frac{\kappa}{\eta}\right] \\
+	&= \frac{1}{\kappa} \left[\frac43\frac{\kappa}{\eta}\right] \\
+	&= \frac43 \frac{1}{\eta}
+\end{align}
+Here we dropped the second leading term in $\kappa^3$ before simplifying, to find that $F$ does indeed approximate a constant value depending on $F$.
+
+
+
+\end{document}
