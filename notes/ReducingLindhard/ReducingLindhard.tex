@@ -5,7 +5,23 @@
 \begin{document}
 
 % !TeX spellcheck = en_GB
+
+\section{Summary of limits to Lindhard function}
+The limits of the Lindhard function for $\omega \rightarrow 0$ and $k \rightarrow 0$ are interesting. We can look at both the longitudinal function:
+\begin{equation} \label{eq:ReducingLindhard:longitudinal} 
+	\epsilon_l = 1 + \frac{3 \omega_p^2}{k^2 v_F^2} \frac{\left(\omega + i \nu \right) \left(1 - \frac{\omega + i \nu}{2 k \vf} \ln\frac{\omega + i\nu + k \vf}{\omega + i \nu - k \vf}\right)}{\omega + i \nu  \left(1 - \frac{\omega + i \nu}{2 k \vf} \ln\frac{\omega + i\nu + k \vf}{\omega + i \nu - k \vf}\right)},
+\end{equation}
+and the transverse function
+\begin{equation} \label{eq:ReducingLindhard:transverse}
+	\epsilon_t = 1 - \frac{\omega_p^2}{\omega \left(\omega + i \nu \right)} \left[\frac32 \frac{\left(\omega + i \nu \right)^2}{\vf^2 k^2} - \frac34 \frac{\left(\omega + i \nu \right)}{\vf k} \left(\frac{\left(\omega + i \nu \right)^2}{\vf^2 k^2} - 1 \right)\ln\frac{\left(\omega + i \nu \right) + \vf k}{\left(\omega + i \nu \right) - \vf k} \right]
+\end{equation}
+
+If we start by taking the $k \rightarrow 0$ limit first, both of these reduce down to the Drude case, where $\epsilon = 1 - \frac{ \omega_p^2}{\omega \left( \omega + i \nu \right)}$. The Drude case can be explicitly decomposed into real and imaginary parts. The real part of this is $\Re\epsilon = 1 - \frac{\omega_p^2}{\nu^2 + \omega^2}$, and the imaginary part is $\Im\epsilon = \frac{\omega_p^2 \nu}{\omega (\nu^2 + \omega^2)}$. In this Drude limit, if we take $\omega \rightarrow 0$, we should see the real part go to a constant determined by $\omega_p$ and $\nu$, while the imaginary part diverges.
+
+If the $\omega \rightarrow 0$ limit is taken first, these functions have a different form. The longitudinal function goes to $\epsilon_l(\omega = 0, k) = 1 - \frac{3 \omega_p^2}{k^2 \vf^2}$. This is purely real, and diverges for small $k$.
+
 \section{Reducing Lindhard to Drude}
+Now let's actually derive those limits.
 \subsection{The longitudinal case}
 We want to see how we can reduce the longitudinal Lindhard dielectric function
 \begin{equation} \label{eq:ReducingLindhard:LindhardEps} 
@@ -154,8 +170,8 @@ We can also try to recover the Thomas-Fermi dielectric function
 
 We'll see this in the static limit $\omega \rightarrow 0$.
 
-\subsection{Longitudinal Lindhard form going to TF form}
-\begin{equation} \label{eq:ReducingLindhard:LindhardEpsToTF}
+\subsection{Static longitudinal}
+\begin{equation} \label{eq:ReducingLindhard:LindhardLongEpsToTF}
  \epsilon_l = 1 + \frac{3 \omega_p^2}{k^2 v_F^2} \frac{\left(\omega + i \nu \right) f_l(\flatfrac{(\omega + i \nu)}{k v_f})}{\omega + i \nu f_l(\flatfrac{(\omega + i \nu)}{k v_f})},
 \end{equation}
 
@@ -169,5 +185,10 @@ Using the definition $k_{TF}^2 = \frac{3 \omega_p^2}{\vf^2}$, we rather easily g
 
 It's worth noting that we get some disagreement between the Thomas-Fermi form and the Drude form around the region where both $k$ and $\omega$ go to zero.
 
+\subsection{Static transverse}
+Now, the static limit of the transverse function, where $\eta \rightarrow i \nu$.
+\begin{equation} 
+\epsilon_t = 1 - \frac{\omega_p^2}{\omega (i \nu)} \left[\frac32 \frac{(i \nu)^2}{\vf^2 k^2} - \frac34 \frac{(i \nu)}{\vf k} \left(\frac{(i \nu)^2}{\vf^2 k^2} - 1 \right)\ln\frac{(i \nu) + \vf k}{(i \nu) - \vf k} \right]
+\end{equation}
 
 \end{document}
