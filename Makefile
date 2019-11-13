@@ -9,7 +9,7 @@ NOTE_DEPEND = $(NOTE_TEXS)
 
 #DEFINE ALL THE INDIVIDUAL NOTE DEPENDENCIES HERE AS CONSTANTS
 
-LATEXMK = latexmk -use-make -pdf -dvi- -ps-
+LATEXMK = latexmk -use-make -g -pdf -dvi- -ps-
 
 all: main
 
